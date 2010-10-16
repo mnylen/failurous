@@ -65,4 +65,11 @@ describe Fail do
     end
   end
   
+  describe "acknowledgments" do
+    it "should be acknowledged when ack has been called" do
+      fail = @project.fails.create(@attributes)
+      fail.ack!
+      Fail.find(fail.id).should be_acknowledged   
+    end
+  end
 end

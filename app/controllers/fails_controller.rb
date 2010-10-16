@@ -6,6 +6,7 @@ class FailsController < ApplicationController
   end
   
   def ack
+    @fail.ack!
     redirect_to project_url(@fail.project)
   end
 
@@ -16,3 +17,4 @@ class FailsController < ApplicationController
   end
   
 end
+

@@ -23,6 +23,10 @@ class Fail
     self.occurence_count += 1
   end
   
+  def ack!
+    self.update_attributes!(:acknowledged => true)
+  end
+  
   # Builds a new Occurence from the attributes and tries to combine
   # it with an existing Fail
   def self.create_or_combine_with_similar_fail(project, attributes)
