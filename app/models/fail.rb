@@ -8,6 +8,10 @@ class Fail
   
   embeds_many :occurences
   referenced_in :project
+
+  def location
+    "/usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:1506:in `attributes='"
+  end
   
   # Builds a new Occurence from the attributes and tries to combine
   # it with an existing Fail
@@ -42,4 +46,6 @@ class Fail
       
       md5.hexdigest
     end
+  
 end
+
