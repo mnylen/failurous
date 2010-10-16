@@ -12,7 +12,7 @@ describe Occurence do
           [:last_stack_frame, "from ipsum:10:in `lorem'", {:use_in_checksum => true}]
         ]],
         [:info, [
-          [:stack_trace, ["Lorem ipsum dolor sit amet", {:use_in_checksum => false}]]
+          [:stack_trace, "Lorem ipsum dolor sit amet", {:use_in_checksum => false}]
         ]]
       ]
     }
