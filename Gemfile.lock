@@ -1,3 +1,13 @@
+GIT
+  remote: http://github.com/mongoid/mongoid.git
+  revision: b1080cda54d32d3bc18e008867b33b82d64fb55b
+  specs:
+    mongoid (2.0.0.beta.19)
+      activemodel (~> 3.0)
+      mongo (~> 1.1)
+      tzinfo (~> 0.3.22)
+      will_paginate (~> 3.0.pre)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -31,8 +41,8 @@ GEM
     arel (1.0.1)
       activesupport (~> 3.0.0)
     bcrypt-ruby (2.1.2)
-    bson (1.0.4)
-    bson_ext (1.0.4)
+    bson (1.1.1)
+    bson_ext (1.1.1)
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -62,14 +72,8 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
-    mongo (1.0.7)
-      bson (>= 1.0.4)
-    mongoid (2.0.0.beta.18)
-      activemodel (~> 3.0.0)
-      bson (= 1.0.4)
-      mongo (= 1.0.7)
-      tzinfo (~> 0.3.22)
-      will_paginate (~> 3.0.pre)
+    mongo (1.1.1)
+      bson (>= 1.1.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -129,16 +133,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bson (= 1.0.4)
-  bson_ext (= 1.0.4)
+  bson (= 1.1.1)
+  bson_ext (= 1.1.1)
   capistrano
   devise
   factory_girl
   faker
   formtastic
   haml
-  mongo (= 1.0.7)
-  mongoid (~> 2.0.0.beta.18)
+  mongo (= 1.1.1)
+  mongoid!
   rails (~> 3.0.1)
   rspec (~> 2.0.0)
   rspec-rails (~> 2.0.0)
