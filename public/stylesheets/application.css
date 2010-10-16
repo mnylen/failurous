@@ -169,3 +169,7 @@ form.formtastic fieldset.buttons {
   margin:0;
   padding:0;
 }
+
+.edit-button {
+  float:right;
+}

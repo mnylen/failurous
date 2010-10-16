@@ -2,6 +2,8 @@
 
 .span-24.project-details
   %h2= @project.name
+  =link_to('Edit project', edit_project_path(@project), {:class => 'button positive edit-button'})
+  
   - @project.open_fails.each do |fail|
     = render fail
 
