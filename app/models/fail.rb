@@ -11,7 +11,15 @@ class Fail
   referenced_in :project
 
   def location
-    "/usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:1506:in `attributes='"
+    occurences.first.sections.each do |section|
+      section.fields.each do |field|
+        if field.key == "location"
+          return field.value
+        end
+      end
+    end
+    
+    ""
   end
   
   def last_occurence

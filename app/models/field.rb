@@ -4,6 +4,7 @@ class Field
   
   def initialize(data)
     @key, @value, @attributes = data
+    @key = @key.to_s
   end
   
   def title
