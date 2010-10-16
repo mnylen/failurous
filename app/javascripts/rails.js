@@ -1,3 +1,4 @@
+//= require <jquery-1.4.2.min>
 jQuery(function ($) {
     var csrf_token = $('meta[name=csrf-token]').attr('content'),
         csrf_param = $('meta[name=csrf-param]').attr('content');
