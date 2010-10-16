@@ -30,8 +30,7 @@ h2 {
 
 .actions {
   float: left;
-  clear: both;
-  width: 100%;  
+  clear: left;
 }
 
 .fail-card, .section {

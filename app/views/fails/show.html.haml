@@ -3,7 +3,7 @@
 .fail-details
 
   %h2= @fail.title
-
+    
   .occurences
     - if @fail.occurence_count > 1
       %div
@@ -17,7 +17,7 @@
       Occurred 
       %strong= time_ago_in_words(@fail.last_occurence_at)    
       ago
-    
+
   .actions
     = link_to "Acknowledge", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
     
