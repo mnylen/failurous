@@ -19,8 +19,8 @@ group :development do
 end
 
 group :test do
-  gem "rspec", "~> 2.0.0.beta.22"
-  gem "rspec-rails", "~> 2.0.0.beta.22"
+  gem "rspec", "~> 2.0.0"
+  gem "rspec-rails", "~> 2.0.0"
   gem "shoulda"
   gem "factory_girl"
   gem "faker"
