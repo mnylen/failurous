@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Failurous</title>
+  <%= stylesheet_link_tag "blueprint/screen.css", :media => "screen, projection" %>
+  <%= stylesheet_link_tag "blueprint/print.css", :media => "print" %>
+  <!--[if lt IE 8]>
+    <%= stylesheet_link_tag "blueprint/ie.css", :media => "screen, projection" %>
+  <![endif]-->
+  <%= stylesheet_link_tag "blueprint/plugins/buttons/screen" %>
+  <%= stylesheet_link_tag "formtastic" %>
+  <%= stylesheet_link_tag "common" %>
+  <%= stylesheet_link_tag "radiator" %>
+  <%= sprockets_include_tag %>
+  <%= csrf_meta_tag %>
+</head>
+<body class="radiator">
+  <div id="radiator-content">
+    <%= yield %>
+  </div>
+</body>
+</html>
+

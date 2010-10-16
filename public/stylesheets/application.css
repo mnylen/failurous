@@ -1,17 +1,10 @@
-body {
-  background: #202020;
-  color: #ABF26D;
-  font-size:0.9em;
-  letter-spacing:1px;
-}
-
 a, a:active, a:hover, a:visited {
   color: #ABF26D;
 }
 
 .header {
   width: 100%;
-  height: 50pt;
+  height: 70px;
   background: #ABF26D;
   border-bottom: 5pt solid #469400;
   margin-bottom: 30pt;
@@ -19,13 +12,19 @@ a, a:active, a:hover, a:visited {
 }
 
 .header h1 {
+  float: left;
   padding: 15pt 0;
-  font-size:19pt;
+  font-size: 19pt;
   font-weight: bold;
 }
 .header h1 * {
   color: #202020;
   text-decoration: none;  
+}
+
+.header .navigation {
+  float: right;
+  margin-top: 10px;
 }
 
 .message {
@@ -130,11 +129,16 @@ h2 {
   width: 75%;   
 }
 .section dd.backtrace {
-  padding-top: 5px;
+  padding: 5px 10px;
+  margin: 5px 0;  
   clear: left;
-  width: 100%;
+  width: 95%;
   white-space: nowrap;
-  overflow: auto;  
+  overflow: auto;
+  background-color: #e69e40; 
+}
+.section .backtrace p {
+  margin-bottom: 0;
 }
 .project {
   padding:7px;

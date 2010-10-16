@@ -13,6 +13,8 @@ Failurous::Application.routes.draw do
     end
     
   end
+  
+  resource :radiator
     
 end
 
