@@ -1,5 +1,22 @@
 require 'sinatra'
 
+POSSIBLE_TYPES = [
+  NoMethodError, ActionController::RoutingError,
+  TypeError, NameError, StandardError
+]
+
+MESSAGES = [
+  "Could not find FooBar with ID = baz",
+  "No route for /kakka",
+  "can't convert Hash into String",
+  "Invalid JSON string"
+]
+
+LOCATIONS = [
+  "answer_forms_controller#show",
+  "reports_controller#generror"
+]
+
 post '/api/projects/:api_key/fails' do
   begin
     project = Project.first
@@ -11,5 +28,32 @@ post '/api/projects/:api_key/fails' do
   rescue
     status 400
     "Bad Request"
+  end
+end
+
+get '/api/projects/:api_key/fails/generate' do
+  begin
+    type = POSSIBLE_TYPES[rand(POSSIBLE_TYPES.size)]
+    msg  = MESSAGES[rand(MESSAGES.size)]
+    error = type.new(msg)
+  
+    raise error
+  rescue => boom
+    data = [
+      [:summary, [
+        [:type, boom.class.to_s, {:use_in_checksum => true}],
+        [:message, boom.message, {:use_in_checksum => false}],
+        [:location, LOCATIONS[rand(LOCATIONS.size)], {:use_in_checksum => false}],
+        [:top_of_backtrace, boom.backtrace[0], {:use_in_checksum => false}]
+      ]],
+      [:info, [
+        [:full_backtrace, boom.backtrace.join('\n'), {:use_in_checksum => false}],
+        [:parameters, "{'hello' => 'moi'}", {:use_in_checksum => false}]
+      ]]
+    ]
+    
+    Fail.create_or_combine_with_similar_fail(Project.first,
+      {:title => "#{boom.class}: #{boom.message}",
+       :data => data})
   end
 end
