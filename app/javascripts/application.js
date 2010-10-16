@@ -9,4 +9,8 @@ jQuery(document).ready(function($) {
        }, el.attr('data-fade') * 1000);
     });
     
+    $("#goto").change(function() {
+      window.location.href = $(this).val();
+    });
+    
 });

@@ -1,8 +1,8 @@
-=render :partial => 'sidebar'
 
-.span-24.project-details
-  %h2= @project.name
-  =link_to('Edit project', edit_project_path(@project), {:class => 'button positive edit-button'})
+.project-details
+  %h2.name= @project.name
+  .actions
+    =link_to('Project settings', edit_project_path(@project), :class => 'button positive')
   
   - @project.open_fails.each do |fail|
     = render fail

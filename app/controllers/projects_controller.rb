@@ -32,10 +32,4 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
   end
-  
-  private
-  
-    def load_all_projects
-      @projects = Project.all
-    end
 end

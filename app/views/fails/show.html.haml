@@ -2,24 +2,24 @@
 
 .fail-details
 
+  .count= @fail.occurence_count
   %h2= @fail.title
-    
-  .occurences
-    - if @fail.occurence_count > 1
-      %div
-        Has occurred
-        %strong= pluralize(@fail.occurence_count, "time")
-      %div
-        Latest
-        %strong= time_ago_in_words(@fail.last_occurence_at)
-        ago
-    - else
+  .clear  
+  .occured_at
+    -if @fail.occurence_count > 1
+      Latest
+      %strong= time_ago_in_words(@fail.last_occurence_at)
+      ago
+    -else
       Occurred 
       %strong= time_ago_in_words(@fail.last_occurence_at)    
       ago
+  
+  .clear
 
   .actions
-    = link_to "Acknowledge", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
-    
+    =link_to "Ack", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
+  .clear
+  
   = render :partial => "occurence", :object => @fail.last_occurence
 

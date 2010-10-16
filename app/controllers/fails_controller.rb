@@ -15,6 +15,7 @@ class FailsController < ApplicationController
   
   def load_fail
     @fail = Fail.find(params[:id])
+    @project = @fail.project
   end
   
 end

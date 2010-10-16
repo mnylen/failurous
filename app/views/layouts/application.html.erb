@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Failurous</title>
-  <%= stylesheet_link_tag "blueprint/screen.css", :media => "screen, projection" %>
-  <%= stylesheet_link_tag "blueprint/print.css", :media => "print" %>
-  <!--[if lt IE 8]>
-    <%= stylesheet_link_tag "blueprint/ie.css", :media => "screen, projection" %>
-  <![endif]-->
-  <%= stylesheet_link_tag "blueprint/plugins/buttons/screen" %>
-  <%= stylesheet_link_tag "formtastic" %>
-  <%= stylesheet_link_tag "application" %>
-  <%= sprockets_include_tag %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-	<div class="header">
-	  <div class="container">
-      <h1>
-        <%= link_to "Failurous", projects_url %>
-      </h1>
+  <head>
+    <title>Failurous</title>
+    <%= stylesheet_link_tag "blueprint/screen.css", :media => "screen, projection" %>
+    <%= stylesheet_link_tag "blueprint/print.css", :media => "print" %>
+    <%= stylesheet_link_tag "formtastic" %>
+    <!--[if lt IE 8]>
+      <%= stylesheet_link_tag "blueprint/ie.css", :media => "screen, projection" %>
+    <![endif]-->
+    <%= stylesheet_link_tag "blueprint/plugins/buttons/screen", :media => "screen, projection" %>
+    <link rel="stylesheet/less" href="/stylesheets/application.less" type="text/css">
+    <%= sprockets_include_tag %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1 class="logo">
+          <span></span> FAILurous
+        </h1>
+        
+        <%= link_to('Radiator', '', :class => 'button') %>
+        <%= link_to('New project', new_project_path, :class => 'button') %>
+        
+        <div class="project-selector">
+          Project:
+          <%= select_tag :goto, options_for_select(projects_choices(@projects), :selected => selected_project_path) %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div>
-    <div class="container">
-      <%= render :partial => "shared/messages" %>
-      <%= yield %>
+    
+    <div class="content">
+      <div class="container">
+        <%= render :partial => 'shared/messages' %>
+        <%= yield %>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
-
