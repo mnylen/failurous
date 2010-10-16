@@ -3,7 +3,7 @@ set :repository,  "git@github.com:railsrumble/rr10-team-256.git"
 
 set :scm, :git
 
-role :web, :app, :db, "li220-76.members.linode.com"
+server "li220-76.members.linode.com", :app, :web, :db, :primary => true
 set :user, "www-data"
 set :password, "y34ZjdlAPf7"
 set :use_sudo, false
