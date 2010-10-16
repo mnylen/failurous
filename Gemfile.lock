@@ -54,6 +54,7 @@ GEM
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
       i18n (>= 0.4.0)
+    haml (3.0.21)
     highline (1.6.1)
     i18n (0.4.1)
     mail (2.2.7)
@@ -135,6 +136,7 @@ DEPENDENCIES
   factory_girl
   faker
   formtastic
+  haml
   mongo (= 1.0.7)
   mongoid (~> 2.0.0.beta.18)
   rails (~> 3.0.1)
