@@ -130,11 +130,16 @@ h2 {
   width: 75%;   
 }
 .section dd.backtrace {
-  padding-top: 5px;
+  padding: 5px 10px;
+  margin: 5px 0;  
   clear: left;
-  width: 100%;
+  width: 95%;
   white-space: nowrap;
-  overflow: auto;  
+  overflow: auto;
+  background-color: #e69e40; 
+}
+.section .backtrace p {
+  margin-bottom: 0;
 }
 .project {
   padding:7px;
