@@ -173,3 +173,9 @@ form.formtastic fieldset.buttons {
 .edit-button {
   float:right;
 }
+
+.readonly {
+  color:#555;
+  font-weight:normal !important;
+  font-size:0.8em !important;
+}

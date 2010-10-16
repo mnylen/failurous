@@ -6,6 +6,8 @@ class Project
   
   references_many :fails, :default_order => :last_occurence_at.desc
   
+  attr_protected :api_key
+  
   before_create :assign_api_key
   
   def open_fails

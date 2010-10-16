@@ -1,7 +1,2 @@
 %h2 Add new project
--semantic_form_for(@project) do |f|
-  -f.inputs do
-    =f.input :name
-  
-  -f.buttons do
-    =f.commit_button "Create", :class => 'positive'
+=render :partial => 'form'
