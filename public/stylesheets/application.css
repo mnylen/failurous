@@ -106,3 +106,18 @@ h2 {
   padding-bottom: 5px;
 }
 
+.project {
+  padding:7px;
+  background-color:#eee;
+  border-radius:5px;
+  margin-bottom:10px;
+}
+
+.selected-project {
+  background-color:#eee;
+}
+
+.selected-project a {
+  font-weight:bold;
+  color:green;
+}

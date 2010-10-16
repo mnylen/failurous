@@ -1,0 +1,5 @@
+.span-6.pull-10.project-selector
+  -@projects.each do |project|
+    =render project
+  
+  =link_to('+ Add project', '', :class => 'button positive')
