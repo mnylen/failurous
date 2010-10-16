@@ -13,8 +13,8 @@ class Fail
     "/usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:1506:in `attributes='"
   end
   
-  def sections
-    self[:data].map { |section| Section.new(section) }
+  def last_occurence
+    self.occurences.first
   end
   
   # Builds a new Occurence from the attributes and tries to combine
