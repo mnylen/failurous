@@ -1,9 +1,5 @@
-require 'rubygems'
-require 'bundler'
-Bundler.setup(:default, :api)
-
 require 'sinatra'
 
-get '/api/hello' do
-  "Hello, World!"
+post '/api/projects/:api_key/fails' do
+  "MOROOOOOOO, #{params[:api_key]}"  
 end
