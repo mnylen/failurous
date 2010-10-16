@@ -7,6 +7,7 @@ class FailsController < ApplicationController
   
   def ack
     @fail.ack!
+    flash[:message] = "Acknowledged"
     redirect_to project_url(@fail.project)
   end
 

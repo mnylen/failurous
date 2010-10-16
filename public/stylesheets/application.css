@@ -24,6 +24,16 @@ a, a:active, a:hover, a:visited {
   font-weight: bold;
 }
 
+.message {
+  width: 100%;
+  background: #ABF26D;
+  border: 1px solid #469400;
+  color: #202020;
+}
+.message div {
+  padding: 5px;
+}
+
 h2 {
   color: #D9F970;
 }
