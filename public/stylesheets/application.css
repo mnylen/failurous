@@ -31,28 +31,9 @@ a, a:active, a:hover, a:visited {
 
 .header .navigation {
   float: right;
+  margin-top: 10px;
 }
-.header .navigation .tab {
-  float: right;
-  margin: 33px 0 0 3px;
-  padding: 8px 15px 3px 15px;
-  height: 25px;
-  border: 1px solid #469400;
-  border-bottom: 0;
-  color:  #202020;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-  -webkit-border-radius: 7px 7px 0 0;
-  -moz-border-radius: 7px 7px 0 0;
-  border-radius: 7px 7px 0 0;
-}
-.header .navigation .tab-active {
-  background: #469400;    
-}
-.header .navigation .tab-inactive {
-  background: #9BE26D;
-}
+
 .message {
   width: 100%;
   background: #ABF26D;
