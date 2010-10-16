@@ -37,7 +37,7 @@ class Fail
       occurence.occured_at = now
     end
     
-    fail = Fail.where(:checksum => checksum).first || Fail.create(:project_id => project.id, :title => attributes[:title], :checksum => checksum)
+    fail = Fail.where(:project_id => project.id, :checksum => checksum).first || Fail.create(:project_id => project.id, :title => attributes[:title], :checksum => checksum)
     fail.occurences << occurence
     fail.last_occurence_at = now
     fail.increase_count
