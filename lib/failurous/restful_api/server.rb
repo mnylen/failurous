@@ -3,9 +3,9 @@ require 'sinatra'
 post '/api/projects/:api_key/fails' do
   begin
     project = Project.first
-    data    = ActiveSupport::JSON.decode(params[:data])
+    data    = ActiveSupport::JSON.decode(params[:data])    
     Fail.create_or_combine_with_similar_fail(project, data)
-  
+    
     status 200
     "OK"
   rescue
