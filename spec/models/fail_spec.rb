@@ -47,6 +47,14 @@ describe Fail do
       fail = Fail.find(fail.id)
       fail.occurences.size.should == 2
     end
+    
+    it "should increase the count" do
+      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
+      fail.occurence_count.should == 1
+      
+      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
+      fail.occurence_count.should == 2
+    end
   end
   
   describe "title" do

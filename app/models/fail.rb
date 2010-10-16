@@ -17,6 +17,11 @@ class Fail
     self.occurences.first
   end
   
+  def increase_count
+    self.occurence_count ||= 0
+    self.occurence_count += 1
+  end
+  
   # Builds a new Occurence from the attributes and tries to combine
   # it with an existing Fail
   def self.create_or_combine_with_similar_fail(project, attributes)
@@ -30,6 +35,7 @@ class Fail
     fail = Fail.where(:checksum => checksum).first || Fail.create(:project_id => project.id, :title => attributes[:title], :checksum => checksum)
     fail.occurences << occurence
     fail.last_occurence_at = now
+    fail.increase_count
     fail.save
         
     fail
