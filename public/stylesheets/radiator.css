@@ -1,0 +1,24 @@
+body tr:nth-child(even) td {
+  background: none;
+  
+}
+.project {
+  margin: 15px;
+  padding: 30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;  
+  border-radius: 15px;        
+}
+.project * {
+  color: white;
+}
+.project-ok {
+  background: green;
+  height: 150px;   
+}
+.project-fail {
+  background: red;
+  height: 250px;      
+}
+
+

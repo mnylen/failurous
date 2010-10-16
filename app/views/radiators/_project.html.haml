@@ -1,0 +1,4 @@
+.project{:class => (project.has_open_fails?? "project-fail" : "project-ok")}
+  %h1= project.name
+  - if project.has_open_fails?
+    %h2= project.fails.first.title

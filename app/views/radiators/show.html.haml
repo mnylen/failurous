@@ -1,1 +1,11 @@
-I'm on ur screen, radiating in ur face.
+%table
+  - @failed_projects.each do |project|
+    %tr
+      %td{:colspan => 3}
+        = render :partial => "project", :object => project
+  - @ok_projects.each_slice(3) do |project_row|
+    %tr
+      - project_row.each do |project|
+        %td
+          = render :partial => "project", :object => project
+
