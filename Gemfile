@@ -9,6 +9,10 @@ gem "devise"
 gem "formtastic"
 gem "sprockets"
 
+group :api do
+  gem "sinatra"
+end
+
 group :development do
   gem "thin"
 end

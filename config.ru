@@ -1,4 +1,8 @@
 # This file is used by Rack-based servers to start the application.
 
 require ::File.expand_path('../config/environment',  __FILE__)
-run Failurous::Application
+require ::File.expand_path('../lib/failurous/restful_api/server', __FILE__)
+
+run Rack::Builder.new {
+  run Rack::Cascade.new([Sinatra::Application, Failurous::Application])
+}

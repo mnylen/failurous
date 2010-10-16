@@ -95,6 +95,8 @@ GEM
     rspec-rails (2.0.1)
       rspec (~> 2.0.0)
     shoulda (2.11.3)
+    sinatra (1.0)
+      rack (>= 1.0)
     sprockets (1.0.2)
     thin (1.2.7)
       daemons (>= 1.0.9)
@@ -124,5 +126,6 @@ DEPENDENCIES
   rspec (~> 2.0.0.beta.22)
   rspec-rails (~> 2.0.0.beta.22)
   shoulda
+  sinatra
   sprockets
   thin
