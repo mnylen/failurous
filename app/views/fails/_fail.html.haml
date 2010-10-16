@@ -1,3 +1,4 @@
 .fail-card
   %h3.fail-title= fail.title
+  .fail-last-occurrence= time_ago_in_words(fail.occured_at) + " ago"
 
