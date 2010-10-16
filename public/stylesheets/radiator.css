@@ -18,6 +18,9 @@ body tr:nth-child(even) td {
   color: white;
   text-decoration: none;
 }
+.project-ok h1, .project-fail h1 {
+  font-weight: bold;
+}
 .project-ok {
   background: green;
   height: 150px;   
@@ -26,5 +29,4 @@ body tr:nth-child(even) td {
   background: red;
   height: 250px;      
 }
-
 

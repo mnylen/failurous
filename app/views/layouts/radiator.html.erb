@@ -14,8 +14,10 @@
   <%= sprockets_include_tag %>
   <%= csrf_meta_tag %>
 </head>
-<body class="radiator">	
-  <%= yield %>
+<body class="radiator">
+  <div id="radiator-content">
+    <%= yield %>
+  </div>
 </body>
 </html>
 

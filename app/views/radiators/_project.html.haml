@@ -2,3 +2,4 @@
   %h1= project.name
   - if project.has_open_fails?
     %h2= project.fails.first.title
+    %h3.occurence= time_ago_in_words(project.fails.first.last_occurence_at) + " ago"
