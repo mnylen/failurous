@@ -1,0 +1,21 @@
+body {
+  background: #202020;
+  color: #ABF26D;
+}
+
+.header {
+    width: 100%;
+    height: 50pt;
+    background: #ABF26D;
+    border-bottom: 5pt solid #469400;
+    margin-bottom: 30pt;
+    color: #202020;
+}
+.header h1 {
+    padding: 10pt 50pt;
+    font-weight: bold;
+}
+
+h2, h3, h4, h5, h6 {
+  color: #D9F970;
+}
