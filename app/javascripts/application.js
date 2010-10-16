@@ -14,10 +14,10 @@ jQuery(document).ready(function($) {
     $(".radiator .project-fail").each(function() {
       var el = $(this);
       var toOrange = function() {
-        el.animate({backgroundColor: '#ffaa00'}, 1000, toRed);  
+        el.animate({backgroundColor: '#ffaa00'}, 1000, 'swing', toRed);  
       }
       var toRed = function() {
-        el.animate({backgroundColor: '#ff0000'}, 1000, toOrange);  
+        el.animate({backgroundColor: '#ff0000'}, 1000, 'swing', toOrange);  
       }
       toOrange();
    }); 

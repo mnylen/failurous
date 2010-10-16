@@ -5,15 +5,18 @@ body tr:nth-child(even) td {
   background: none;
   
 }
-.project {
+.project-ok, .project-fail {
+  display: block;
   margin: 15px;
-  padding: 30px;
+  padding: 50px 30px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;  
   border-radius: 15px;        
+  text-decoration: none;  
 }
-.project * {
+.project-ok *, .project-fail * {
   color: white;
+  text-decoration: none;
 }
 .project-ok {
   background: green;
