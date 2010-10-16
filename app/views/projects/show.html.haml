@@ -1,2 +1,4 @@
 %h2= @project.name
-%p Find me in app/views/projects/show.html.haml
+- @project.fails.each do |fail|
+  = render fail
+

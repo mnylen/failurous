@@ -20,6 +20,24 @@ body {
     font-weight: bold;
 }
 
-h2, h3, h4, h5, h6 {
+h2 {
   color: #D9F970;
+}
+
+
+/* Fail cards view */
+
+.fail-card {
+  float: left;
+  width: 100%;
+  height: 100px;
+  margin: 0 15px 15px 0;
+  padding: 5px;
+  background: #FFC373;
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFAD40), color-stop(1, #FFC373));
+  color: #202020;
+  border: 2px solid #A65F00;
+}
+.fail-title {
+    border-bottom: 1px solid #202020;
 }
