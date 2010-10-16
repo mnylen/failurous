@@ -146,3 +146,26 @@ h2 {
 a.positive:visited {
   color:#529214;
 }
+
+form.formtastic {
+  padding:15px;
+}
+
+form.formtastic fieldset.inputs label {
+  color:#333;
+  display:block;
+  float:none;
+  margin-bottom:5px;
+}
+
+form.formtastic fieldset.inputs input {
+  padding:5px;
+  font-weight:bold;
+  width:250px !important;
+  float:none;
+}
+
+form.formtastic fieldset.buttons {
+  margin:0;
+  padding:0;
+}

@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
     redirect_to project_path(Project.first.id)
   end
   
+  def new
+    @project = Project.new
+  end
+  
   def show
     @project = Project.find(params[:id])
   end
