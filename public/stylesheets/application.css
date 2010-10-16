@@ -23,6 +23,10 @@ a, a:active, a:hover, a:visited {
   font-size:19pt;
   font-weight: bold;
 }
+.header h1 * {
+  color: #202020;
+  text-decoration: none;  
+}
 
 .message {
   width: 100%;
