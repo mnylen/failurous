@@ -1,5 +1,5 @@
 =link_to project_fail_url(@project, fail), :class => "fail-card" do
   %h3.fail-title= fail.title
-  .fail-last-occurrence= time_ago_in_words(fail.occured_at) + " ago"
+  .fail-last-occurrence= time_ago_in_words(fail.last_occurence_at) + " ago"
   %tt.fail-location= "@ " + fail.location
 
