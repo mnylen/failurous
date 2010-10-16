@@ -70,6 +70,19 @@ h2 {
 }
 
 
+.fail-details h2 {
+  float: left;
+  width: 75%;
+}
+.fail-details .occurences {
+  float: right;
+  margin-top: 15px;
+  width: 25%;
+  text-align: right;
+}
+.fail-details .occurences strong {
+  font-size: 1.1em;
+}
 .section {
   color: #202020;     
 }

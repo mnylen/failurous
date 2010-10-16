@@ -1,3 +1,20 @@
-%h2= @fail.title
-= render :partial => "occurence", :object => @fail.last_occurence
+.fail-details
+
+  %h2= @fail.title
+
+  .occurences
+    - if @fail.occurence_count > 1
+      %div
+        Has occurred
+        %strong= pluralize(@fail.occurence_count, "time")
+      %div
+        Latest
+        %strong= time_ago_in_words(@fail.last_occurence_at)
+        ago
+    - else
+      Occurred 
+      %strong= time_ago_in_words(@fail.last_occurence_at)    
+      ago
+    
+  = render :partial => "occurence", :object => @fail.last_occurence
 
