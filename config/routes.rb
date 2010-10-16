@@ -5,7 +5,13 @@ Failurous::Application.routes.draw do
   resource :sprockets
   
   resources :projects do
-    resources :fails
+    
+    resources :fails do
+       member do
+         post :ack
+       end
+    end
+    
   end
     
 end

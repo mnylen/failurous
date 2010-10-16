@@ -8,13 +8,13 @@ describe Fail do
       :title => "Test",
       :data  => [
         [:summary, [
-          [:type, "NoMethodError", {:use_in_checksum => true}],
+          [:type, "NoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\n", {:use_in_checksum => true}],
           [:message, "Called `id' for nil:NilClass", {:use_in_checksum => true}],
           [:environment, "production", {:use_in_checksum => true}],
           [:last_stack_frame, "from ipsum:10:in `lorem'", {:use_in_checksum => true}]
         ]],
         [:info, [
-          [:stack_trace, ["Lorem ipsum dolor sit amet", {:use_in_checksum => false}]]
+          [:stack_trace, "Lorem ipsum dolor sit amet", {:use_in_checksum => false}]
         ]]
       ]
     }
