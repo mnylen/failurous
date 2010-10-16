@@ -6,4 +6,5 @@ class Fail
   field :data, :type => Array
   
   embeds_many :occurences, :class_name => "Fail"
+  referenced_in :project
 end
