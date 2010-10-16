@@ -8,5 +8,17 @@ jQuery(document).ready(function($) {
          el.remove();           
        }, el.attr('data-fade') * 1000);
     });
-    
+   
+   
+   
+    $(".radiator .project-fail").each(function() {
+      var el = $(this);
+      var toOrange = function() {
+        el.animate({backgroundColor: '#ffaa00'}, 1000, toRed);  
+      }
+      var toRed = function() {
+        el.animate({backgroundColor: '#ff0000'}, 1000, toOrange);  
+      }
+      toOrange();
+   }); 
 });

@@ -1,3 +1,6 @@
+body {
+  margin: 15px;
+}
 body tr:nth-child(even) td {
   background: none;
   
