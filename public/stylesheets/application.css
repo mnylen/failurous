@@ -1,6 +1,8 @@
 body {
   background: #202020;
   color: #ABF26D;
+  font-size:0.9em;
+  letter-spacing:1px;
 }
 
 .header {
@@ -11,8 +13,10 @@ body {
     margin-bottom: 30pt;
     color: #202020;
 }
+
 .header h1 {
-    padding: 10pt 50pt;
+    padding: 15pt 50pt;
+    font-size:19pt;
     font-weight: bold;
 }
 
