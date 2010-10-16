@@ -10,7 +10,7 @@
 
 -------------------------------------------------------------- */
 
-a.button, button {
+a.button, button, .commit input {
   display:block;
   float:left;
   margin: 0.7em 0.5em 0.7em 0;
@@ -29,6 +29,10 @@ a.button, button {
   color:#565656;
   cursor:pointer;
 }
+.commit input {
+  padding:5px !important;
+}
+
 button {
   width:auto;
   overflow:visible;
