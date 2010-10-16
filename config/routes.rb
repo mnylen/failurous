@@ -4,7 +4,9 @@ Failurous::Application.routes.draw do
   devise_for :users
   resource :sprockets
   
-  resources :projects
-  
+  resources :projects do
+    resources :fails
+  end
+    
 end
 
