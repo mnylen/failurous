@@ -7,6 +7,7 @@ gem "bson_ext", "1.0.4"
 gem "mongoid", "~> 2.0.0.beta.18"
 gem "devise"
 gem "formtastic"
+gem "sprockets"
 
 group :development do
   gem "thin"
