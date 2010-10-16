@@ -16,4 +16,12 @@ module RadiatorsHelper
     end
   end
   
+  def ok_project_width
+    case ok_project_colspan
+    when 1 then "100%"
+    when 2 then "50%"
+    else "33%"
+    end
+  end
+  
 end

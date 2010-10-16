@@ -6,6 +6,6 @@
   - @ok_projects.each_slice(ok_project_colspan) do |project_row|
     %tr
       - project_row.each do |project|
-        %td
+        %td{:width => ok_project_width}
           = render :partial => "project", :object => project
 
