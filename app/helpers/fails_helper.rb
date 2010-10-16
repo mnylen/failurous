@@ -1,5 +1,5 @@
 module FailsHelper
   def stripe
-    return cycle("odd", "odd", "", "")
-   end
+   return cycle("odd", "odd", "", "")
+  end
 end

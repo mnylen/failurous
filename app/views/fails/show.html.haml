@@ -1,3 +1,5 @@
+= link_to "&laquo; Back to list".html_safe, project_url(@fail.project), :method => :get
+
 .fail-details
 
   %h2= @fail.title
@@ -17,8 +19,7 @@
       ago
     
   .actions
-    = link_to "&laquo; Back to list".html_safe, project_url(@fail.project), :method => :get
-    = button_to "Ack", ack_project_fail_url(@fail.project, @fail), :class => "button positive"
+    = link_to "Acknowledge", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
     
   = render :partial => "occurence", :object => @fail.last_occurence
 
