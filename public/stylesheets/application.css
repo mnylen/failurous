@@ -24,6 +24,11 @@ h2 {
   color: #D9F970;
 }
 
+.actions {
+  float: left;
+  clear: both;     
+}
+
 .fail-card, .section {
   display: block;
   float: left;
@@ -88,5 +93,16 @@ h2 {
 }
 .section h3 {
   border-bottom: 1px solid #202020;
+}
+
+.section dt {
+  float: left;
+  width: 20%;
+  clear: left;
+}
+.section dd {
+  float: left;
+  width: 75%;
+  padding-bottom: 5px;
 }
 
