@@ -9,6 +9,7 @@ set :password, "y34ZjdlAPf7"
 set :use_sudo, false
 set :deploy_to, "/var/rails/#{application}"
 set :rails_env, "production"
+default_run_options[:pty] = true
 
 namespace :deploy do
   task :start do ; end
@@ -28,7 +29,7 @@ namespace :bundler do
   
   task :bundle_new_release, :roles => :app do
     bundler.create_symlink
-    run "cd #{release_path} && bundle install" # --without test"
+    run ". ~/.profile && cd #{release_path} && bundle install" # --without test"
   end
   
   task :lock, :roles => :app do
@@ -41,6 +42,5 @@ namespace :bundler do
 end
 
 after "deploy:update_code" do
-  bundler.create_symlink
   bundler.bundle_new_release
 end
