@@ -19,7 +19,7 @@ LOCATIONS = [
 
 post '/api/projects/:api_key/fails' do
   begin
-    project = Project.first
+    project = Project.where(:api_key => params[:api_key]).first
     data    = ActiveSupport::JSON.decode(params[:data])    
     Fail.create_or_combine_with_similar_fail(project, data)
     
@@ -31,7 +31,7 @@ post '/api/projects/:api_key/fails' do
   end
 end
 
-get '/api/projects/:api_key/fails/generate' do
+get '/api/projects/:id/fails/generate' do
   begin
     type = POSSIBLE_TYPES[rand(POSSIBLE_TYPES.size)]
     msg  = MESSAGES[rand(MESSAGES.size)]
@@ -52,7 +52,7 @@ get '/api/projects/:api_key/fails/generate' do
       ]]
     ]
     
-    project = Project.find(params[:api_key])
+    project = Project.find(params[:id])
     Fail.create_or_combine_with_similar_fail(project,
       {:title => "#{boom.class}: #{boom.message}",
        :data => data})

@@ -9,6 +9,7 @@ gem "devise"
 gem "haml"
 gem "formtastic"
 gem "sprockets"
+gem "uuidtools"
 
 group :api do
   gem "sinatra"

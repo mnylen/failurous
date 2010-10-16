@@ -4,7 +4,7 @@ describe "RESTful API" do
   include Rack::Test::Methods
   
   before(:each) do
-    Project.create(:name => "Default project")
+    @project = Project.create(:name => "Default project")
   end
   
   def app
@@ -29,11 +29,11 @@ describe "RESTful API" do
     end
     
     def do_valid_post
-      post '/api/projects/394949/fails', :data => "{\"title\":\"Moi\",\"data\":[[\"summary\",[[\"type\",\"NoMethodError\",{\"use_in_checksum\":true}]]]]}"
+      post "/api/projects/#{@project.api_key}/fails", :data => "{\"title\":\"Moi\",\"data\":[[\"summary\",[[\"type\",\"NoMethodError\",{\"use_in_checksum\":true}]]]]}"
     end
     
     def do_invalid_post
-      post '/api/projects/394949/fails', :data => "{\"title\"\"Moi\",\"data\":[[\"summary\",[[\"type\",\"NoMethodError\",{\"use_in_checksum\":true}]]]]}"
+      post "/api/projects/#{@project.api_key}/fails", :data => "{\"title\"\"Moi\",\"data\":[[\"summary\",[[\"type\",\"NoMethodError\",{\"use_in_checksum\":true}]]]]}"
     end
   end
 end

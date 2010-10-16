@@ -15,4 +15,8 @@ describe Project do
     end
   end
   
+  it "should create api key for project" do
+    @project.api_key.should_not be_nil
+  end
+  
 end
