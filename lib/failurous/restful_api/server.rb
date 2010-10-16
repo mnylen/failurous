@@ -53,7 +53,6 @@ get '/api/projects/:api_key/fails/generate' do
     ]
     
     project = Project.find(params[:api_key])
-    p project
     Fail.create_or_combine_with_similar_fail(project,
       {:title => "#{boom.class}: #{boom.message}",
        :data => data})
