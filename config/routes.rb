@@ -1,6 +1,6 @@
 Failurous::Application.routes.draw do
-  get "projects/index"
-
+  root :to => "home#index"
+  
   devise_for :users
   resource :sprockets
   
