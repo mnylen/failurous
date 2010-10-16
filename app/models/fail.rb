@@ -41,6 +41,7 @@ class Fail
     fail.occurences << occurence
     fail.last_occurence_at = now
     fail.increase_count
+    fail.acknowledged = false
     fail.save
         
     fail

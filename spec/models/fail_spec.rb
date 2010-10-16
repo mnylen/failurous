@@ -66,10 +66,19 @@ describe Fail do
   end
   
   describe "acknowledgments" do
-    it "should be acknowledged when ack has been called" do
+    
+    it "should be acknowledged after ack has been called" do
       fail = @project.fails.create(@attributes)
       fail.ack!
       Fail.find(fail.id).should be_acknowledged   
     end
+    
+    it "should not be acknowledged after a new occurrence" do
+      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
+      fail.ack!     
+      Fail.create_or_combine_with_similar_fail(@project, @attributes)
+      Fail.find(fail.id).should_not be_acknowledged      
+    end
+    
   end
 end
