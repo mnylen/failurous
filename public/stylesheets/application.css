@@ -120,6 +120,10 @@ h2 {
   margin-bottom:10px;
 }
 
+.project a {
+  color:#333;
+}
+
 .selected-project {
   background-color:#eee;
 }
