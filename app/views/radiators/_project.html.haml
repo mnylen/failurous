@@ -1,5 +1,7 @@
-- link_to project_url(project), :class => (project.has_open_fails?? "project-fail" : "project-ok") do 
+- link_to project_url(project), :class => "project project-#{ok_project_size} #{(project.has_open_fails?? "project project-fail" : "project project-ok")}" do 
   %h1= project.name
   - if project.has_open_fails?
     %h2= project.fails.first.title
+    %h2= "at " + project.fails.first.location
     %h3.occurence= time_ago_in_words(project.fails.first.last_occurence_at) + " ago"
+ 

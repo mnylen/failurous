@@ -1,9 +1,9 @@
 %table
   - @failed_projects.each do |project|
     %tr
-      %td{:colspan => 3}
+      %td{:colspan => ok_project_colspan}
         = render :partial => "project", :object => project
-  - @ok_projects.each_slice(3) do |project_row|
+  - @ok_projects.each_slice(ok_project_colspan) do |project_row|
     %tr
       - project_row.each do |project|
         %td

@@ -5,7 +5,7 @@ body tr:nth-child(even) td {
   background: none;
   
 }
-.project-ok, .project-fail {
+.project {
   display: block;
   margin: 15px;
   padding: 50px 30px;
@@ -13,20 +13,39 @@ body tr:nth-child(even) td {
   -moz-border-radius: 15px;  
   border-radius: 15px;        
   text-decoration: none;  
+  border: 3px solid #202020;  
 }
-.project-ok *, .project-fail * {
+.project * {
   color: white;
   text-decoration: none;
 }
-.project-ok h1, .project-fail h1 {
+.project:hover {
+  border-color: white;
+}
+h1 {
   font-weight: bold;
+}
+h2 {
+  margin-bottom: 0;
+}
+h3 {
+  margin-top: 40px;
 }
 .project-ok {
   background: green;
-  height: 150px;   
 }
 .project-fail {
-  background: red;
-  height: 250px;      
+  background: red;  
+  height: 250px;
+}
+
+.project-ok-small {
+  height: 130px;
+}
+.project-ok-med {
+  height: 200px;    
+}
+.project-ok-large { 
+  height: 300px;    
 }
 
