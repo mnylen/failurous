@@ -6,7 +6,7 @@ body {
 }
 
 a, a:active, a:hover, a:visited {
-  color: #ABF26D;    
+  color: #ABF26D;
 }
 
 .header {
@@ -52,7 +52,7 @@ h2 {
 }
 
 .fail-card, .fail-card:hover, .fail-card:active, .fail-card:visited {
-  color: #202020;    
+  color: #202020;
 }
 .fail-card:hover {
   border: 2px solid #7F44D6;    
@@ -131,4 +131,8 @@ h2 {
 .selected-project a {
   font-weight:bold;
   color:green;
+}
+
+a.positive:visited {
+  color:#529214;
 }
