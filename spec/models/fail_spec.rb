@@ -57,13 +57,4 @@ describe Fail do
     end
   end
   
-  describe "sections" do
-    it "should return a section for each item in the data array" do
-      fail = Fail.new(@attributes)
-      sections = fail.sections
-      sections.size.should == 2
-      sections.first.should be_a(Section) 
-    end   
-  end 
-  
 end

@@ -1,2 +1,3 @@
 %h2= @fail.title
-%p Find me in app/views/fails/show.html.haml
+= render :partial => "occurence", :object => @fail.last_occurence
+
