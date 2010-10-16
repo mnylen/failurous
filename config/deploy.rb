@@ -23,7 +23,7 @@ end
 namespace :bundler do
   task :create_symlink, :roles => :app do
     bundled_gems_dir = File.join(shared_path, '.bundle')
-    run("mkdir -p #{bundled_gems_dir} && cd #{release_dir} && ln -s #{bundled_gems_dir} .")
+    run("mkdir -p #{bundled_gems_dir} && cd #{release_path} && ln -s #{bundled_gems_dir} .")
   end
   
   task :bundle_new_release, :roles => :app do
