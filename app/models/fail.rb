@@ -4,6 +4,7 @@ class Fail
   field :checksum, :type => String
   field :last_occurence_at, :type => DateTime
   field :occurence_count, :type => Integer
+  field :acknowledged, :type => Boolean
   field :title, :type => String
   
   embeds_many :occurences
