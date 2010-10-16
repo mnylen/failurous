@@ -138,8 +138,8 @@ DEPENDENCIES
   mongo (= 1.0.7)
   mongoid (~> 2.0.0.beta.18)
   rails (~> 3.0.1)
-  rspec (~> 2.0.0.beta.22)
-  rspec-rails (~> 2.0.0.beta.22)
+  rspec (~> 2.0.0)
+  rspec-rails (~> 2.0.0)
   shoulda
   sinatra
   sprockets
