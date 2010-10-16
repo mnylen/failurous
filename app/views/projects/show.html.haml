@@ -2,6 +2,6 @@
 
 .span-24.project-details
   %h2= @project.name
-  - @project.fails.each do |fail|
+  - @project.open_fails.each do |fail|
     = render fail
 

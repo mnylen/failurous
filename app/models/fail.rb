@@ -4,6 +4,7 @@ class Fail
   field :checksum, :type => String
   field :last_occurence_at, :type => DateTime
   field :occurence_count, :type => Integer
+  field :acknowledged, :type => Boolean
   field :title, :type => String
   
   embeds_many :occurences
@@ -22,6 +23,10 @@ class Fail
     self.occurence_count += 1
   end
   
+  def ack!
+    self.update_attributes!(:acknowledged => true)
+  end
+  
   # Builds a new Occurence from the attributes and tries to combine
   # it with an existing Fail
   def self.create_or_combine_with_similar_fail(project, attributes)
@@ -36,6 +41,7 @@ class Fail
     fail.occurences << occurence
     fail.last_occurence_at = now
     fail.increase_count
+    fail.acknowledged = false
     fail.save
         
     fail
