@@ -9,6 +9,14 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
   
+  def create
+    @project = Project.new(params[:project])
+    if @project.save
+      flash[:message] = "Added"
+      redirect_to project_path(@project)
+    end
+  end
+  
   def show
     @project = Project.find(params[:id])
   end
