@@ -1,4 +1,5 @@
 //= require <jquery-1.4.2.min>
+//= require <jquery-ui-1.8.5.custom.min>
 
 jQuery(document).ready(function($) {
 
@@ -42,7 +43,7 @@ jQuery(document).ready(function($) {
       
       return false;
     });
-
+    
     $(".slogan").click(function() {
       changeSlogan($(this));
     });
@@ -50,6 +51,8 @@ jQuery(document).ready(function($) {
     setInterval(function() {
       changeSlogan($(".slogan"));
     }, 10000);
+    
+    $(".instruction-tabs").tabs();
 });
 
 function changeSlogan(elem) {

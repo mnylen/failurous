@@ -17,9 +17,9 @@ Jeweler::Tasks.new do |gem|
   gem.files = Dir.glob('client/**/*.rb')
   gem.require_path = "client"
   gem.test_files = []
-  gem.add_dependency 'activesupport', '>= 2.3.5'
-  gem.add_dependency 'actionpack', '>= 2.3.5'
 end
+
+Jeweler::GemcutterTasks.new
 
 task :build_java_client do
   sh "cd java-client && mvn clean install -DcreateChecksum=true"

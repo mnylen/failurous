@@ -37,7 +37,9 @@ module ApplicationHelper
     "TooManySlogansException",
     "Fail fast, fail young",
     "Organic failvour since 2010",
-    "Yes sir, I can fail it"
+    "Yes sir, I can fail it",
+    "The fails, they are a-changin'",
+    "Making you a failure you cannot refuse"
   ]
 
   def selected_project_path
@@ -63,6 +65,14 @@ module ApplicationHelper
   
   def slogan
     SLOGANS.sort_by { rand }.first
+  end
+  
+  def render_instructions(project, name)
+    file = File.join(RAILS_ROOT, 'doc', 'clients', "#{name}.md")
+    content = File.read(file)
+    content.gsub!("<FAILUROUS-INSTALLATION>", root_url)
+    content.gsub!("<API-KEY-FOR-PROJECT>", project.api_key)
+    RDiscount.new(content, :smart).to_html.html_safe
   end
   
 end
