@@ -1,6 +1,9 @@
 =link_to project_fail_url(@project, fail), :class => 'fail-link' do
-  .fail-card
-    %h3.title= fail.title
+  %div{ :class => "fail-card #{fail.acknowledged ? 'open' : 'closed'}" }
+    %h3.title
+      = fail.title 
+      %span.small
+        ='[closed]' if fail.acknowledged
     .location= fail.location
     .count=fail.occurence_count
     .last_occurence_at= time_ago_in_words(fail.last_occurence_at) + " ago"

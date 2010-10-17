@@ -33,7 +33,7 @@
         Concratulations, your project hasn't failed yet.
     - else
       - if params[:show] == 'all'
-        - @fails = @project.fails
+        - @fails = @project.fails.order_by(:acknowledged.desc).reverse
         - info = open + ' | ' + closed + ' | ' + 'all'
       - elsif params[:show] == 'closed'
         - @fails = @project.closed_fails
