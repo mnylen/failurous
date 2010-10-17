@@ -1,10 +1,17 @@
 body {
   margin: 15px;
+  background: #202020;
+  color: #ABF26D;
+  font-size:0.9em;
+  letter-spacing:1px;
 }
+
+/* override table striping from blueprint */
 body tr:nth-child(even) td {
   background: none;
-  
 }
+
+
 .project {
   display: block;
   margin: 15px;
