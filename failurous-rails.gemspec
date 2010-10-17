@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{failurous-rails}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mikko Nylén", "Tero Parviainen", "Antti Forsell"]
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{Failurous is an open source webapp for monitoring exceptions in your live applications. failurous-rails is a Rails plugin that allows you to send easily notifications of new fails to your Failurous installation.}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README"
+     "README.md"
   ]
   s.files = [
     "client/failurous.rb",
