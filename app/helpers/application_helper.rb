@@ -13,7 +13,20 @@ module ApplicationHelper
     "Now with #{rand(90)+30}% more enjoyable failing",
     "Knock knock. Who's there? Fail.",
     "Cheesy slogan now included",
-    "No failures were hurt during making this software."
+    "No failures were hurt during the making of this software.",
+    "Failure has never felt this good",
+    "Failure has never looked this good",
+    "Let's fail together",
+    "Enterprise grade fail since 2010",
+    "Fail visualization of epic proportions",
+    "Bring us yer fail",
+    "Simply epic",
+    "Fail me up, Scotty",
+    "Tracking your fail shipments 24/7",
+    "We pick you up when you fail",
+    "Slogan fail",
+    "Failspotting since 2010",
+    "Is that a fail in your app or are you just happy to see me?"
   ]
 
   def selected_project_path
