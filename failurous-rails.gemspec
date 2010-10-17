@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = %q{http://github.com/railsrumble/rr10-team-256}
   s.rdoc_options = ["--charset=UTF-8"]
-  s.require_paths = ["lib"]
+  s.require_paths = ["client"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Notifier for sending fails to Failurous installation}
 

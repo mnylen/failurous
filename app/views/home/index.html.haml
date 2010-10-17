@@ -16,12 +16,16 @@
     .features
       %h2 Features
       %ul
-        %li Lorem fail
-        %li Ipsum fail
-        %li Dolor fail
-        %li Sit fail
-        %li Amet fail
-             
+        %li
+          Gives you a
+          = link_to "simple interface", projects_url
+          for monitoring exceptions happening in all your apps.
+        %li Combines all occurrences of a single exception to one report.
+        %li
+          Provides a
+          = link_to "radiator interface", radiator_url
+          for a clear, high-level visualization of your app health.
+        %li Integrates with Rails 3 and Rails 2. (Java support is in the works)
   .rhs   
     .link.live-demo-link
       = link_to "See the Live Demo", projects_url, :class => "button"
@@ -30,3 +34,5 @@
       = link_to "Get it from Github", "http://github.com/railsrumble/rr10-team-256", :class => "button"
         
 
+- if @shatner
+  #ceiling-shatner{:style => "width: 540px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: -270px; background-image: url(/images/ceiling-shatner.png); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: fixed; top: -400px; left: 50%; z-index: 1000; cursor: pointer; height: 400px; display: block; background-position: 50% 100%; background-repeat: initial initial; "}

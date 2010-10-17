@@ -16,6 +16,17 @@ jQuery(document).ready(function($) {
    
     radiator.animateFails();
     radiator.updatePeriodically();
+    
+    $('#ceiling-shatner').each(function() {
+       var shatner = $(this);
+       setTimeout(function() {
+         shatner.animate({top: 0}, 1500);
+         setTimeout(function() {
+           shatner.animate({top: -400}, 1500);
+         }, 20000);
+       }, 7000);
+    });
+    
 });
 
 
