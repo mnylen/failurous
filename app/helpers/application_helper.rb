@@ -65,7 +65,7 @@ module ApplicationHelper
   end
   
   def slogan
-    SLOGANS[rand(SLOGANS.size - 1)]
+    SLOGANS[rand(SLOGANS.size)]
   end
   
   def render_instructions(project, name)
