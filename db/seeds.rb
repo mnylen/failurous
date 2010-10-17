@@ -3,7 +3,7 @@
 
 require "demo_fail_generator"
 
-Project.create(:name => "Shatner''s Bassoon Inc.")
+Project.create(:name => "Shatner's Bassoon Inc.")
 Project.create(:name => "Tech Wars")
 Project.create(:name => "Llama Inventory")
 Project.create(:name => "Sockswapping Intl.")
