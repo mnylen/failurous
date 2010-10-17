@@ -17,9 +17,8 @@ module Failurous
     # Details:
     #   - full backtrace
     #
-    def self.build_from_exception(exception)
-      FailNotification.new.
-        set_title("#{exception.class}: #{exception.message}").
+    def from_exception(exception)
+      self.set_title("#{exception.class}: #{exception.message}").
         add_field(:summary, :type, exception.class.to_s, {:use_in_checksum => true}).
         add_field(:summary, :message, exception.message, {:use_in_checksum => false}).
         add_field(:summary, :topmost_line_in_backtrace, exception.backtrace[0], {:use_in_checksum => true}).
