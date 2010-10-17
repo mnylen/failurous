@@ -35,7 +35,7 @@ To integrate Failurous to a Java webapp, first add the Failurous Maven repositor
 
     <repository>
       <id>failurous</id>
-      <url>http://jazzz.r10.railsrumble.com/mvnrepo</url>
+      <url>http://failurous.r10.railsrumble.com/mvnrepo</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
