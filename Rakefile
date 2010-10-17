@@ -15,6 +15,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["Mikko Nylén", "Tero Parviainen", "Antti Forsell"]
   gem.homepage = "http://github.com/railsrumble/rr10-team-256"
   gem.files = Dir.glob('client/**/*.rb')
+  gem.test_files = []
   gem.add_dependency 'activesupport', '>= 2.3.5'
   gem.add_dependency 'actionpack', '>= 2.3.5'
 end

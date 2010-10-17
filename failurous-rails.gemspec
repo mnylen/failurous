@@ -27,15 +27,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Notifier for sending fails to Failurous installation}
-  s.test_files = [
-    "spec/models/fail_spec.rb",
-     "spec/models/field_spec.rb",
-     "spec/models/occurence_spec.rb",
-     "spec/models/project_spec.rb",
-     "spec/models/section_spec.rb",
-     "spec/restful_api/server_spec.rb",
-     "spec/spec_helper.rb"
-  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
