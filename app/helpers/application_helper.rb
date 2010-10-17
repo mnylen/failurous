@@ -65,7 +65,7 @@ module ApplicationHelper
   end
   
   def slogan
-    SLOGANS.sort_by { rand }.first
+    SLOGANS[rand(SLOGANS.size - 1)]
   end
   
   def render_instructions(project, name)
