@@ -1,6 +1,6 @@
 To use Failurous from Rails 3 application, add this to your Gemfile:
 
-    gem 'failurous-rails', :git => 'git://github.com/railsrumble/rr10-team-256.git'
+    gem 'failurous-rails'
 
 
 Next you need to add the following under config/initializer/failurous.rb:
