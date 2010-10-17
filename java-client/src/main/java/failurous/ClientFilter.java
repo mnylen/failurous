@@ -5,6 +5,10 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
@@ -23,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ClientFilter implements Filter {
-
+	
 	private String endpointUrl;
 	private HttpClient httpClient = new HttpClient(new MultiThreadedHttpConnectionManager());
 	
@@ -76,26 +81,11 @@ public class ClientFilter implements Filter {
 			JSONObject report = new JSONObject();
 			report.put("title", t.getMessage());
 			
-			
 			JSONArray data = new JSONArray();
-			
-			JSONArray summary = new JSONArray();
-			summary.put("summary");
-			JSONArray summaryContent = new JSONArray();
-			summaryContent.put(constructField("type", t.getClass().getCanonicalName(), "use_in_checksum", "true"));
-			summaryContent.put(constructField("message", t.getMessage()));
-			summaryContent.put(constructField("location", t.getStackTrace()[0].toString(), "use_in_checksum", "true"));
-			summaryContent.put(constructField("request_url", request.getRequestURL().toString()));
-			summary.put(summaryContent);
-			data.put(summary);
-			
-			JSONArray details = new JSONArray();
-			details.put("details");
-			JSONArray detailsContent = new JSONArray();
-			detailsContent.put(constructField("stacktrace", getStackTraceString(t)));
-			details.put(detailsContent);
-			data.put(details);
-			
+			data.put(getSummary(t, request));
+			data.put(getDetails(t));
+			data.put(getRequestInfo(request));
+			data.put(getSessionInfo(request));
 			report.put("data", data);
 			
 			return report.toString();
@@ -104,6 +94,58 @@ public class ClientFilter implements Filter {
 			return null;
 		}
 	}
+
+	private JSONArray getSummary(Throwable t, HttpServletRequest request) throws JSONException {
+		JSONArray summary = new JSONArray();
+		summary.put("summary");
+		JSONArray summaryContent = new JSONArray();
+		summaryContent.put(constructField("type", t.getClass().getCanonicalName(), "use_in_checksum", "true"));
+		summaryContent.put(constructField("message", t.getMessage()));
+		summaryContent.put(constructField("location", t.getStackTrace()[0].toString(), "use_in_checksum", "true"));
+		summaryContent.put(constructField("request_url", request.getRequestURL().toString()));
+		summary.put(summaryContent);
+		return summary;
+	}
+
+	private JSONArray getDetails(Throwable t) throws JSONException {
+		JSONArray details = new JSONArray();
+		details.put("details");
+		JSONArray detailsContent = new JSONArray();
+		detailsContent.put(constructField("stacktrace", getStackTraceString(t)));
+		details.put(detailsContent);
+		return details;
+	}
+
+	@SuppressWarnings("unchecked")
+	private JSONArray getRequestInfo(HttpServletRequest request) throws JSONException {
+		JSONArray requestInfo = new JSONArray();
+		requestInfo.put("Request");
+		JSONArray requestInfoContent = new JSONArray();
+		requestInfoContent.put(constructField("url", request.getRequestURL().toString()));
+		requestInfoContent.put(constructField("remote_address", request.getRemoteAddr()));
+		List<String> headers = Collections.list(request.getHeaderNames());
+		for (String header : headers) {
+			requestInfoContent.put(constructField(header, request.getHeader(header)));	
+		}
+		requestInfo.put(requestInfoContent);
+		return requestInfo;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONArray getSessionInfo(HttpServletRequest request) throws JSONException {
+		JSONArray session = new JSONArray();
+		session.put("Session");
+		JSONArray sessionContent = new JSONArray();
+		if (request.getSession(false) != null) {
+			List<String> keys = Collections.list(request.getSession().getAttributeNames());
+			for (String key : keys) {
+				Object value = request.getSession().getAttribute(key);
+				sessionContent.put(constructField(key, value.toString()));
+			}
+		}
+		session.put(sessionContent);
+		return session;
+	}	
 
 	private JSONArray constructField(String name, String value, String... options) throws JSONException {
 		JSONArray type = new JSONArray();

@@ -34,7 +34,10 @@ module ApplicationHelper
     "How's it failing'?",
     "Failing is our business",
     "Enterprise grade exception tracking since java.text.ParseException: Unparseable date",
-    "TooManySlogansException"
+    "TooManySlogansException",
+    "Fail fast, fail young",
+    "Organic failvour since 2010",
+    "Yes sir, I can fail it"
   ]
 
   def selected_project_path
