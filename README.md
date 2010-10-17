@@ -104,6 +104,9 @@ as follows:
       add_field(:another, :field, {...}).
       send
 
+### In Java applications
+
+The Java client does not yet support this feature.
 
 ## License
 

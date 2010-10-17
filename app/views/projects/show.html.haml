@@ -15,7 +15,7 @@
     
     - unless @project.has_fails?
       .info-text
-        Concratulations, your project hasn't failed yet.
+        Congratulations, your project hasn't failed yet.
     - else
       - if params[:show] == 'all'
         - @fails = @project.fails.order_by(:acknowledged.desc).reverse

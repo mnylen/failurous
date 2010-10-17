@@ -1,5 +1,7 @@
 module FailsHelper
-  def stripe
-   return cycle("odd", "odd", "", "")
+  
+  def fail_title(fail)
+    truncate(fail.title, :length => 300)
   end
+  
 end
