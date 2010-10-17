@@ -24,10 +24,12 @@
 
     - if @fails.empty?
       .info-text
+        = info.html_safe
+        %br
         No fails to show.
     - else
       .info-text
-        = raw info
+        = info.html_safe
       - @fails.each do |fail|
         = render fail
 

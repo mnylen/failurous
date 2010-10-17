@@ -13,7 +13,8 @@ module ApplicationHelper
     "Now with #{rand(90)+30}% more enjoyable failing",
     "Knock knock. Who's there? Fail.",
     "Cheesy slogan now included",
-    "No failures were hurt during making this software."
+    "No failures were hurt during making of this software",
+    "All your fail are belong to us"
   ]
 
   def selected_project_path
