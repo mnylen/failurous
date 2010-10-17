@@ -18,7 +18,8 @@
   .clear
 
   .actions
-    =link_to "Ack", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
+    - unless @fail.acknowledged
+      =link_to "Ack", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
   .clear
   
   = render :partial => "occurence", :object => @fail.last_occurence
@@ -32,3 +33,6 @@
         .title=link_to(occurence.title, project_fail_occurence_path(@project, @fail, occurence), :class => 'show-occurence')
         .occured_at=time_ago_in_words(occurence.occured_at) + " ago"
         .container
+
+= link_to "&laquo; Back to list".html_safe, project_url(@fail.project)
+

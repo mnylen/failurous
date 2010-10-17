@@ -16,12 +16,16 @@
     .features
       %h2 Features
       %ul
-        %li Lorem fail
-        %li Ipsum fail
-        %li Dolor fail
-        %li Sit fail
-        %li Amet fail
-             
+        %li
+          Gives you a
+          = link_to "simple interface", projects_url
+          for monitoring exceptions happening in all your apps.
+        %li Combines all occurrences of a single exception to one report.
+        %li
+          Provides a
+          = link_to "radiator interface", radiator_url
+          for a clear, high-level visualization of your app health.
+        %li Integrates with Rails 3 and Rails 2. (Java support is in the works)
   .rhs   
     .link.live-demo-link
       = link_to "See the Live Demo", projects_url, :class => "button"

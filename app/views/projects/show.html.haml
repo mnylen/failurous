@@ -4,14 +4,30 @@
   .actions
     =link_to('Project settings', edit_project_path(@project), :class => 'button positive')
 
- 
-  - if @project.has_open_fails?
-    - @project.open_fails.each do |fail|
-      = render fail
-  - elsif @project.has_fails?
+  - open = link_to 'open', '?show=open'
+  - closed = link_to 'closed', '?show=closed'
+  - all = link_to 'all', '?show=all'
+
+  - unless @project.has_fails?
     .info-text
       Concratulations, your project hasn't failed yet.
   - else
-    .info-text
-      No open fails for this project.
+    - if params[:show] == 'all'
+      - @fails = @project.fails
+      - info = open + ' | ' + closed + ' | ' + 'all'
+    - elsif params[:show] == 'closed'
+      - @fails = @project.closed_fails
+      - info = open + ' | ' + 'closed' + ' | ' + all
+    - else # open fails, default
+      - @fails = @project.open_fails
+      - info = 'open' + ' | ' + closed + ' | ' + all
+
+    - if @fails.empty?
+      .info-text
+        No fails to show.
+    - else
+      .info-text
+        = raw info
+      - @fails.each do |fail|
+        = render fail
 

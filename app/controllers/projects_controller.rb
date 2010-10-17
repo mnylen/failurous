@@ -18,6 +18,8 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(params[:project])
       flash[:message] = "Saved"
       redirect_to project_path(@project)
+    else
+      render 'edit'
     end
   end
   
@@ -26,6 +28,8 @@ class ProjectsController < ApplicationController
     if @project.save
       flash[:message] = "Added"
       redirect_to project_path(@project)
+    else
+      render 'new'
     end
   end
   

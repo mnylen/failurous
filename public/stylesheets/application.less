@@ -96,7 +96,8 @@ body {
       font-size: 1.5em;
       
       .overview {
-        margin-top: 30px;          
+        margin-top: 30px;
+        font-weight: bold;         
       }
       .features {
         margin-top: 25px;
@@ -184,6 +185,40 @@ body {
   fieldset.buttons {
     padding:0 !important;
     margin:0 !important;
+
+    a, input {
+      display: block;
+      float: left;
+      margin: 0 7px 0 0;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #dedede;
+      border-right: 1px solid #dedede;
+      border-top: 1px solid #eee;
+      border-left: 1px solid #eee;
+
+      font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+      font-size:100%;
+      line-height:130%;
+      text-decoration:none;
+      font-weight:bold;
+      color:#565656;
+      cursor:pointer;
+      padding:5px 10px 6px 7px; /* Links */
+    }
+
+    .positive, .negative {
+      background-repeat: no-repeat;
+      background-position: 5px center;
+      padding-left: 25px !important;
+    }
+
+    .positive {
+      background-image: url('/images/icons/accept.png');
+    }
+
+    .negative {
+      background-image: url('/images/icons/cancel.png');
+    }
   }
 }
 
@@ -204,6 +239,7 @@ body {
 
   .info-text {
     clear: left;
+    padding-bottom: 10px;
   }
 }
 
