@@ -1,2 +1,32 @@
-%h2 Welcome to Failurous!
-%p You are welcome to fail as much as you can.
+.home
+
+  %p.intro= "Failurous - #{slogan}"
+
+  .screenshots
+    .ss.ss1
+      %div{:style => "width: 460px; height: 320px; border: 1px solid black;"}
+        Screenshot
+    .ss.ss2
+      %div{:style => "width: 460px; height: 320px; border: 1px solid black;"}
+        Screenshot
+
+  .lhs
+    %p.overview
+      Failurous is an open source webapp for monitoring exceptions in your live applications.
+    .features
+      %h2 Features
+      %ul
+        %li Lorem fail
+        %li Ipsum fail
+        %li Dolor fail
+        %li Sit fail
+        %li Amet fail
+             
+  .rhs   
+    .link.live-demo-link
+      = link_to "See the Live Demo", projects_url, :class => "button"
+      
+    .link.install-link
+      = link_to "Get it from Github", "http://github.com/railsrumble/rr10-team-256", :class => "button"
+        
+
