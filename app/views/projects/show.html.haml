@@ -44,6 +44,8 @@
 
       - if @fails.empty?
         .info-text
+          = info.html_safe
+          %br
           No fails to show.
       - else
         .info-text

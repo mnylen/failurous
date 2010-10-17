@@ -10,10 +10,10 @@ module ApplicationHelper
     "Boldly going where no fail has gone before",
     "Got fail?",
     "For your failing pleasure",
-    "Now with #{rand(90)+30}% more enjoyable failing",
+    "Now with #{-9+rand(120)}% more enjoyable failing",
     "Knock knock. Who's there? Fail.",
     "Cheesy slogan now included",
-    "No failures were hurt during the making of this software.",
+    "No failures were hurt during the making of this software",
     "Failure has never felt this good",
     "Failure has never looked this good",
     "Let's fail together",
@@ -28,7 +28,9 @@ module ApplicationHelper
     "Failspotting since 2010",
     "Is that a fail in your app or are you just happy to see me?",
     "All your fail are belong to us",
-    "How's it failing?'"
+    "How's it failing?'",
+    "Brace for epic fail",
+    "Time to Fail"
   ]
 
   def selected_project_path
