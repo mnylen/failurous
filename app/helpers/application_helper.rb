@@ -5,7 +5,7 @@ module ApplicationHelper
     "Fails you while you sleep",
     "Watching your fail 24/7",
     "Tracking teh fail since 2010",
-    "I'm un ur app, watching it fail",
+    "I'm in ur app, watching it fail",
     "Putting the urous in fail since 2010",
     "Boldly going where no fail has gone before"
   ]
