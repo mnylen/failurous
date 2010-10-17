@@ -19,7 +19,6 @@ class Project
   end
 
   def has_fails?
-    puts fails.empty?
     fails.empty?
   end
 
