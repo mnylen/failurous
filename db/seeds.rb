@@ -9,5 +9,5 @@ Project.create(:name => "Llama Inventory")
 Project.create(:name => "Sockswapping Intl.")
 Project.create(:name => "Fawlty Towers")
 
-DemoFailGenerator.new.run
+DemoFailGenerator.new.run(50)
 

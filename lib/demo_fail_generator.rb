@@ -18,8 +18,8 @@ class DemoFailGenerator
   ]
   
   
-  def run
-    10.times do
+  def run(n = 10)
+    n.times do
       gen
     end
   end
