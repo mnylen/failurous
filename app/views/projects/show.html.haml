@@ -1,33 +1,53 @@
 
 .project-details
   %h2.name= @project.name
-  .actions
-    =link_to('Project settings', edit_project_path(@project), :class => 'button positive')
+  
+  -if params[:created]
+    .clear
+    .section
+      %h3.title Congratulations! Your project has been created
+      %p 1. To get your project up to speed with Failurous, add this to your <code>Gemfile</code>
+      %code.block-code
+        gem 'failurous-rails', :git => 'http://github.com/railsrumble/rr10-team-256'
+      
+      %p 2. And this to <code>config/initializers/failurous.rb/</code>
+      %code.block-code
+        require 'failurous'<br />
+        <br />
+        ="Failurous::Config.server_address = '#{root_url}'<br />".html_safe
+        ="Failurous::Config.api_key = '#{@project.api_key}'<br />".html_safe
+        <br />
+        Rails.application.config.middleware.insert_before(Rails.application.config.session_store, Failurous::FailMiddleware)<br />
+      
+      %p 3. Profit.
+  -else
+    .actions
+      =link_to('Project settings', edit_project_path(@project), :class => 'button positive')
+        
+    - open = link_to 'open', '?show=open'
+    - closed = link_to 'closed', '?show=closed'
+    - all = link_to 'all', '?show=all'
 
-  - open = link_to 'open', '?show=open'
-  - closed = link_to 'closed', '?show=closed'
-  - all = link_to 'all', '?show=all'
-
-  - unless @project.has_fails?
-    .info-text
-      Concratulations, your project hasn't failed yet.
-  - else
-    - if params[:show] == 'all'
-      - @fails = @project.fails
-      - info = open + ' | ' + closed + ' | ' + 'all'
-    - elsif params[:show] == 'closed'
-      - @fails = @project.closed_fails
-      - info = open + ' | ' + 'closed' + ' | ' + all
-    - else # open fails, default
-      - @fails = @project.open_fails
-      - info = 'open' + ' | ' + closed + ' | ' + all
-
-    - if @fails.empty?
+    - unless @project.has_fails?
       .info-text
-        No fails to show.
+        Concratulations, your project hasn't failed yet.
     - else
-      .info-text
-        = raw info
-      - @fails.each do |fail|
-        = render fail
+      - if params[:show] == 'all'
+        - @fails = @project.fails
+        - info = open + ' | ' + closed + ' | ' + 'all'
+      - elsif params[:show] == 'closed'
+        - @fails = @project.closed_fails
+        - info = open + ' | ' + 'closed' + ' | ' + all
+      - else # open fails, default
+        - @fails = @project.open_fails
+        - info = 'open' + ' | ' + closed + ' | ' + all
+
+      - if @fails.empty?
+        .info-text
+          No fails to show.
+      - else
+        .info-text
+          = raw info
+        - @fails.each do |fail|
+          = render fail
 
