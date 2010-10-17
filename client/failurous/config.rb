@@ -1,5 +1,8 @@
 module Failurous
   class Config
+    @@server_address = ""
+    @@api_key = ""
+    
     class << self
       def server_address=(val)
         @@server_address = val
