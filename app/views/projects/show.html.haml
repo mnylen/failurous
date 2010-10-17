@@ -3,7 +3,15 @@
   %h2.name= @project.name
   .actions
     =link_to('Project settings', edit_project_path(@project), :class => 'button positive')
-  
-  - @project.open_fails.each do |fail|
-    = render fail
+
+ 
+  - if @project.has_open_fails?
+    - @project.open_fails.each do |fail|
+      = render fail
+  - elsif @project.has_fails?
+    .info-text
+      Concratulations, your project hasn't failed yet.
+  - else
+    .info-text
+      No open fails for this project.
 
