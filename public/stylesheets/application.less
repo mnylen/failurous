@@ -10,6 +10,10 @@ body {
   border-radius: @radius;
 }
 
+p {
+  text-indent:0 !important;
+}
+
 /******************************************************************************
  * Colors
  *****************************************************************************/
@@ -179,6 +183,7 @@ body {
   .rounded_corners;
   background-color:@card_color;
   padding:10px !important;
+  margin-bottom:15px !important;
   
   fieldset.inputs {
     .string {
@@ -388,13 +393,45 @@ body {
   }
 }
 
-code {
+pre {
   .rounded_corners;
   padding:5px;
   background-color:@code_color;
 }
 
-.block-code {
-  display:block;
-  margin-bottom:15px;
+
+.ui-tabs .ui-tabs-hide {
+     display: none;
+}
+
+.instruction-tabs {
+  ul {
+    display:block;
+    background-color:@card_color_hover;
+    overflow:auto;
+    
+    li {
+      border-top:1px solid @card_fg_color;
+      border-left:1px solid @card_fg_color;
+      border-right:1px solid @card_fg_color;
+      text-align:center;
+      margin-right:5px;
+      list-style-type:none;
+      border-radius:5px 5px 0 0;
+      font-size:0.9em;
+      float:left;
+      width:100px;
+      padding:3px;
+      font-weight:bold;
+      
+      a {
+        color:@card_fg_color;
+        text-decoration:none;
+      }
+    }
+    
+    li.ui-state-active {
+      background-color:@card_color;
+    }
+  }
 }

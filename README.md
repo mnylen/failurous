@@ -23,8 +23,7 @@ Next you need to add the following under config/initializer/failurous.rb:
     Failurous::Config.server_address = '<FAILUROUS-INSTALLATION>'
     Failurous::Config.api_key = '<API-KEY-FOR-PROJECT>'
 
-    Rails.application.config.middleware.insert_before(Rails.application.config.session_store,
-      Failurous::FailMiddleware)
+    Rails.application.config.middleware.use Failurous::FailMiddleware
       
 The middleware will automatically catch any exceptions your app raises and
 deliver them to the Failurous service for later viewing.

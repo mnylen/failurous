@@ -56,4 +56,12 @@ module ApplicationHelper
     SLOGANS.sort_by { rand }.first
   end
   
+  def render_instructions(project, name)
+    file = File.join(RAILS_ROOT, 'doc', 'clients', "#{name}.md")
+    content = File.read(file)
+    content.gsub!("<FAILUROUS-INSTALLATION>", root_url)
+    content.gsub!("<API-KEY-FOR-PROJECT>", project.api_key)
+    RDiscount.new(content, :smart).to_html.html_safe
+  end
+  
 end

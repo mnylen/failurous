@@ -10,6 +10,7 @@ gem "haml"
 gem "formtastic"
 gem "sprockets"
 gem "uuidtools"
+gem "rdiscount"
 
 group :api do
   gem "sinatra"

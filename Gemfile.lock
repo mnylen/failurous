@@ -108,6 +108,7 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
+    rdiscount (1.6.5)
     rspec (2.0.0)
       rspec-core (= 2.0.0)
       rspec-expectations (= 2.0.0)
@@ -155,6 +156,7 @@ DEPENDENCIES
   mongo (= 1.1.1)
   mongoid!
   rails (~> 3.0.1)
+  rdiscount
   rspec (~> 2.0.0)
   rspec-rails (~> 2.0.0)
   shoulda

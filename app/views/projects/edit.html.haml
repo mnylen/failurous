@@ -1,3 +1,4 @@
 %h2="Project settings: #{@project.name}"
 =render :partial => 'form'
-=link_to "&laquo; Back".html_safe, :back
+=render :partial => 'projects/instructions', :locals => {:title => 'Installation instructions'}
+=link_to "&laquo; Back".html_safe, project_path(@project)
