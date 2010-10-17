@@ -11,7 +11,7 @@ describe Section do
   describe "construction" do
     
     it "should use the first item stringified as key" do
-      @field.key.should == :last_stack_frame
+      @field.key.should == "last_stack_frame"
     end
     
     it "should use the second item as value" do
