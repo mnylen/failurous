@@ -28,7 +28,9 @@ module ApplicationHelper
     "Failspotting since 2010",
     "Is that a fail in your app or are you just happy to see me?",
     "All your fail are belong to us",
-    "How's it failing?'"
+    "How's it failing'?",
+    "Failing is our business",
+    "Enterprise grade exception tracking since java.text.ParseException: Unparseable date"
   ]
 
   def selected_project_path
