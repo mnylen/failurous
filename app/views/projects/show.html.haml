@@ -10,7 +10,7 @@
       %code.block-code
         gem 'failurous-rails', :git => 'http://github.com/railsrumble/rr10-team-256'
       
-      %p 2. And this to <code>config/initializers/failurous.rb/</code>
+      %p 2. And this to <code>config/initializers/failurous.rb</code>
       %code.block-code
         require 'failurous'<br />
         <br />
@@ -47,7 +47,6 @@
           No fails to show.
       - else
         .info-text
-          = raw info
+          = info.html_safe
         - @fails.each do |fail|
           = render fail
-
