@@ -6,5 +6,9 @@ class HomeController < ApplicationController
       cookies[:shatner] = { :value => "tech wars", :expires => 1.year.from_now }
     end
   end
+
+  def random_slogan
+    render :layout => false
+  end
   
 end
