@@ -30,7 +30,11 @@ module ApplicationHelper
     "All your fail are belong to us",
     "How's it failing?'",
     "Brace for epic fail",
-    "Time to Fail"
+    "Time to Fail",
+    "How's it failing'?",
+    "Failing is our business",
+    "Enterprise grade exception tracking since java.text.ParseException: Unparseable date",
+    "TooManySlogansException"
   ]
 
   def selected_project_path

@@ -37,11 +37,15 @@ module Failurous
       @request    = ActionDispatch::Request.new(env)
       @backtrace  = clean_backtrace(exception)
     
-      notification = FailNotification.build_from_exception(exception).
+      notification = FailNotification.new.
+        from_exception(exception).
+        add_field(:request, :REQUEST_METHOD, @request.method, {:humanize_field_name => false}).
+        add_field(:request, :REQUEST_URI, @request.request_uri, {:humanize_field_name => false}).
+        add_field(:request, :REMOTE_ADDR, @request.remote_ip, {:humanize_field_name => false}).
+        add_field(:request, :HTTP_USER_AGENT, @request.headers["User-Agent"], {:humanize_field_name => false}).
         add_field(:summary, :location, "#{@controller.controller_name}##{@controller.action_name}", {:use_in_checksum => true}).
         add_field(:details, :params, @controller.params, {:use_in_checksum => false})
       
-      p notification.to_json
       
       FailNotifier.send_fail(notification)
     end  
