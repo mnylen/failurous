@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   def load_all_projects
     @projects = Project.all
   end
+  
 end
