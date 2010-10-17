@@ -1,5 +1,5 @@
 =link_to project_fail_url(@project, fail), :class => 'fail-link' do
-  %div{ :class => "fail-card #{fail.acknowledged ? 'open' : 'closed'}" }
+  %div{ :class => "fail-card #{(not fail.acknowledged) ? 'open' : 'closed'}" }
     %h3.title
       = fail_title(fail)
       %span.small
