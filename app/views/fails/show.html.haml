@@ -22,4 +22,13 @@
   .clear
   
   = render :partial => "occurence", :object => @fail.last_occurence
-
+  
+  .section
+    %h3.title= "Other occurences"
+    
+    -@fail.occurences.each do |occurence|
+      -next if occurence == @fail.last_occurence
+      .occurence
+        .title=link_to(occurence.title, project_fail_occurence_path(@project, @fail, occurence), :class => 'show-occurence')
+        .occured_at=time_ago_in_words(occurence.occured_at) + " ago"
+        .container

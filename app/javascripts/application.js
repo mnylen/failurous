@@ -27,6 +27,21 @@ jQuery(document).ready(function($) {
        }, 7000);
     });
     
+    $(".show-occurence").click(function() {
+      var container = $(this).parent().eq(0).parent().eq(0).children('.container');
+      if (container.hasClass('open')) {
+        container.hide();
+        container.removeClass('open');
+        container.addClass('hidden');
+      } else {
+        container.removeClass('hidden');
+        container.addClass('open');
+        container.load($(this).attr('href'));
+        container.show();
+      }
+      
+      return false;
+    }); 
 });
 
 
