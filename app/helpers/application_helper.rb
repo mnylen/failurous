@@ -39,7 +39,8 @@ module ApplicationHelper
     "Organic failvour since 2010",
     "Yes sir, I can fail it",
     "The fails, they are a-changin'",
-    "Making you a failure you cannot refuse"
+    "Making you a failure you cannot refuse",
+    "failsrumble.com"
   ]
 
   def selected_project_path
