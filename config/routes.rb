@@ -7,9 +7,12 @@ Failurous::Application.routes.draw do
   resources :projects do
     
     resources :fails do
+      
        member do
          post :ack
        end
+       
+       resources :occurences
     end
     
   end
