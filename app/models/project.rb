@@ -17,7 +17,11 @@ class Project
   def has_open_fails?
     not self.open_fails.empty?
   end
-  
+
+  def has_fails?
+    fails.empty?
+  end
+
   private
   
     def assign_api_key
