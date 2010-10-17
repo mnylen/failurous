@@ -1,6 +1,7 @@
 body {
   font-family:Verdana, Arial, sans-serif;
   font-size:0.7em;
+  background-color: #f0f0ff;
 }
 
 .rounded_corners (@radius: 5px) {
@@ -80,25 +81,39 @@ body {
     .intro {
       margin-top: 35px;
       font-size: 2.5em;
+      text-align: center;
     }
     
     .ss1 {
       float: left;
+      width: 450px;
+      height: 516px;
+      background-image: url('/images/failurous_ss1.png');
     }
     
     .ss2 {
       float: right;
+      width: 450px;
+      height: 516px;      
+      background-image: url('/images/failurous_ss2.png');      
     }
-    
+
+    .overview {
+      float: left;
+      clear: both;
+      width: 100%;
+      margin-top: -150px;
+      font-size: 1.5em;      
+      font-weight: bold;
+      text-align: center;    
+    }
+          
     .lhs {
       float: left;
+      margin-top: -100px;
       width: 50%;
       font-size: 1.5em;
-      
-      .overview {
-        margin-top: 30px;
-        font-weight: bold;         
-      }
+
       .features {
         margin-top: 25px;
       }
@@ -106,9 +121,10 @@ body {
     }
     
     .rhs {
-      width: 50%;
       float: right;
-      
+      margin-top: -30px;
+      width: 50%;
+            
       .link {
         margin-left: 20px;
         font-size: 1.5em;
@@ -117,7 +133,13 @@ body {
       
       .link a {
           display: block;
-          width: 435px;
+          margin-left: 50px;
+          width: 350px;
+          
+          /* Blueprint hover style always applied to these buttons */
+          background-color: #DFF4FF;
+          border: 1px solid #C2E1EF;
+          color: #336699;
       }
       
     }
