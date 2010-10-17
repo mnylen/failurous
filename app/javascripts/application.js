@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
 var radiator = {
 
   animateFails: function() {
-    $(".radiator .project-fail").each(function() {
+    $("#radiator-content .project-fail").each(function() {
       var el = $(this);
       var toOrange = function() {
         el.animate({backgroundColor: '#ffaa00'}, 1000, 'swing', toRed);  
@@ -42,7 +42,7 @@ var radiator = {
           method: 'get',
           url: '/radiator',
           success: function(replacement) {
-            $(".radiator .project-fail").stop();
+            $(".project-fail", outer).stop();
             outer.html(replacement);
             radiator.animateFails();
           }
@@ -52,3 +52,4 @@ var radiator = {
   }
 
 };
+

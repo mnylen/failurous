@@ -1,4 +1,4 @@
-- link_to project_url(project), :class => "project #{(project.has_open_fails?? "project project-fail" : "project project-ok project-ok-#{ok_project_size}")}" do 
+- link_to project_url(project), :class => "project #{(project.has_open_fails?? "project-fail" : "project-ok project-ok-#{ok_project_size}")}" do 
   %h1= project.name
   - if project.has_open_fails?
     %h2= project.fails.first.title
