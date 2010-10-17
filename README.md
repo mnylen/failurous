@@ -7,6 +7,14 @@ live applications.
 
 ### Server
 
+The Failurous server is pretty much just a cookie-cutter Rails 3 application, which uses MongoDB as the backend. As prerequisites you'll need:
+
+* [MongoDB](http://www.mongodb.org/downloads)
+* Ruby 1.8 or newer
+
+When you have these two installed, and MongoDB up and running, just clone this repository and hit `rails server -e production`. By default the server will start in port 3000.
+
+
 ### Clients
 
 #### Rails 3
