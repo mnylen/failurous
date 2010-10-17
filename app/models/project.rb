@@ -13,13 +13,21 @@ class Project
   def open_fails
     fails.where(:acknowledged.ne => true)
   end
+
+  def closed_fails
+    fails.where(:acknowledged => true)
+  end
   
   def has_open_fails?
     not self.open_fails.empty?
   end
 
+  def has_closed_fails?
+    not self.closed_fails.empy?
+  end
+
   def has_fails?
-    fails.empty?
+    not fails.empty?
   end
 
   private

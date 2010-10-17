@@ -18,7 +18,8 @@
   .clear
 
   .actions
-    =link_to "Ack", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
+    - unless @fail.acknowledged
+      =link_to "Ack", ack_project_fail_url(@fail.project, @fail), :method => :post, :class => "button positive ack"
   .clear
   
   = render :partial => "occurence", :object => @fail.last_occurence
