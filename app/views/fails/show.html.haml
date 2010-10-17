@@ -3,7 +3,7 @@
 .fail-details
 
   .count= @fail.occurence_count
-  %h2= @fail.title
+  %h2= truncate(@fail.title, :length => 500)
   .clear  
   .occured_at
     -if @fail.occurence_count > 1
