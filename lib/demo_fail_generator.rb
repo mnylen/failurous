@@ -7,7 +7,7 @@ class DemoFailGenerator
 
   MESSAGES = [
     "Could not find FooBar with ID = baz",
-    "No route for /kakka",
+    "No route for /shatner",
     "can't convert Hash into String",
     "Invalid JSON string"
   ]
