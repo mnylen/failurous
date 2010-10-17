@@ -12,7 +12,7 @@ The Failurous server is pretty much just a cookie-cutter Rails 3 application, wh
 * [MongoDB](http://www.mongodb.org/downloads)
 * Ruby 1.8 or newer
 
-When you have these two installed, and MongoDB up and running, just clone this repository and hit `rails server -e production`. By default the server will start in port 3000.
+When you have these two installed, and MongoDB is up and running, just clone this repository and run `bundle install` to install the required gems. Then hit `rails server -e production` to start the app. By default the server will start in port 3000.
 
 
 ### Clients
