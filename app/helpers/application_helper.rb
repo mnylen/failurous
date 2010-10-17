@@ -27,7 +27,8 @@ module ApplicationHelper
     "Slogan fail",
     "Failspotting since 2010",
     "Is that a fail in your app or are you just happy to see me?",
-    "All your fail are belong to us"
+    "All your fail are belong to us",
+    "How's it failing?'"
   ]
 
   def selected_project_path

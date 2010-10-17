@@ -23,7 +23,7 @@ class Fail
   end
   
   def last_occurence
-    self.occurences.first
+    self.occurences.last
   end
   
   def increase_count
