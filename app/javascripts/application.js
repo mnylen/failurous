@@ -44,9 +44,31 @@ jQuery(document).ready(function($) {
       return false;
     });
     
+    $(".slogan").click(function() {
+      changeSlogan($(this));
+    });
+
+    setInterval(function() {
+      changeSlogan($(".slogan"));
+    }, 10000);
+    
     $(".instruction-tabs").tabs();
 });
 
+function changeSlogan(elem) {
+  var new_slogan = "";
+  $.ajax({
+    method: 'get',
+    url: '/random_slogan',
+    success: function(slogan) {
+      new_slogan = slogan;
+    }
+  });  
+  elem.parent().fadeOut('slow', function() {
+    elem.html(new_slogan)
+    elem.parent().fadeIn('slow');
+  });
+}
 
 var radiator = {
 
