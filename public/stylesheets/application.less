@@ -1,6 +1,7 @@
 body {
   font-family:Verdana, Arial, sans-serif;
   font-size:0.7em;
+  background-color:@body_color;
 }
 
 .rounded_corners (@radius: 5px) {
@@ -13,14 +14,15 @@ body {
  * Colors
  *****************************************************************************/
 
+@body_color: #f7f7f7;
 @header_color: #e20048;
 @header_fg_color: #fff;
 @header_color_stripe: #93002f;
-@card_color: #f1f1f1;
-@card_color_hover: #e7e7e7;
+@card_color: #e7e7e7;
+@card_color_hover: #f1f1f1;
 @card_fg_color: #484848;
 @card_count_fg_color: #fff;
-
+@code_color:#d8d8d8;
 
 /******************************************************************************
  * Header
@@ -80,25 +82,39 @@ body {
     .intro {
       margin-top: 35px;
       font-size: 2.5em;
+      text-align: center;
     }
     
     .ss1 {
       float: left;
+      width: 450px;
+      height: 516px;
+      background-image: url('/images/failurous_ss1.png');
     }
     
     .ss2 {
       float: right;
+      width: 450px;
+      height: 516px;      
+      background-image: url('/images/failurous_ss2.png');      
     }
-    
+
+    .overview {
+      float: left;
+      clear: both;
+      width: 100%;
+      margin-top: -150px;
+      font-size: 1.5em;      
+      font-weight: bold;
+      text-align: center;    
+    }
+          
     .lhs {
       float: left;
+      margin-top: -100px;
       width: 50%;
       font-size: 1.5em;
-      
-      .overview {
-        margin-top: 30px;
-        font-weight: bold;         
-      }
+
       .features {
         margin-top: 25px;
       }
@@ -106,9 +122,10 @@ body {
     }
     
     .rhs {
-      width: 50%;
       float: right;
-      
+      margin-top: -30px;
+      width: 50%;
+            
       .link {
         margin-left: 20px;
         font-size: 1.5em;
@@ -117,7 +134,13 @@ body {
       
       .link a {
           display: block;
-          width: 435px;
+          margin-left: 50px;
+          width: 350px;
+          
+          /* Blueprint hover style always applied to these buttons */
+          background-color: #DFF4FF;
+          border: 1px solid #C2E1EF;
+          color: #336699;
       }
       
     }
@@ -319,43 +342,56 @@ body {
     left:58px;
   }
   
-  .section {
+  
+}
+
+.section {
+  .rounded_corners;
+  padding:10px;
+  margin-bottom:15px;
+  background-color:@card_color;
+  
+  .title {
+    font-size:1.2em;
+    font-weight:bold;
+  }
+  
+  dl {
+    padding:7px;
     .rounded_corners;
+    background-color:#ffe;
+    overflow:auto;
+  }
+  
+  .occurence {
+    .rounded_corners;
+    background-color:#ffe;
+    margin-bottom:10px;
     padding:10px;
-    margin-bottom:15px;
-    background-color:@card_color;
     
     .title {
-      font-size:1.2em;
       font-weight:bold;
+      font-size:1em;
     }
     
-    dl {
-      padding:7px;
-      .rounded_corners;
-      background-color:#ffe;
-      overflow:auto;
+    .occured_at {
+      float:right;
+      margin-right:70px;
     }
     
-    .occurence {
-      .rounded_corners;
-      background-color:#ffe;
-      margin-bottom:10px;
-      padding:10px;
-      
-      .title {
-        font-weight:bold;
-        font-size:1em;
-      }
-      
-      .occured_at {
-        float:right;
-        margin-right:70px;
-      }
-      
-      .container {
-        display:none;
-      }
+    .container {
+      display:none;
     }
   }
+}
+
+code {
+  .rounded_corners;
+  padding:5px;
+  background-color:@code_color;
+}
+
+.block-code {
+  display:block;
+  margin-bottom:15px;
 }

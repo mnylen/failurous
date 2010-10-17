@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(params[:project])
     if @project.save
       flash[:message] = "Added"
-      redirect_to project_path(@project)
+      redirect_to project_path(@project, :created => true)
     else
       render 'new'
     end
