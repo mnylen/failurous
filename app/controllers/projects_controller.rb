@@ -2,7 +2,12 @@ class ProjectsController < ApplicationController
   before_filter :load_all_projects
   
   def index
-    redirect_to project_path(Project.first.id)
+    first_project = Project.first
+    if first_project
+      redirect_to project_path(Project.first.id)
+    else
+      redirect_to new_project_path
+    end  
   end
   
   def new
