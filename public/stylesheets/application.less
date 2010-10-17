@@ -1,7 +1,7 @@
 body {
   font-family:Verdana, Arial, sans-serif;
   font-size:0.7em;
-  background-color: #f0f0ff;
+  background-color:@body_color;
 }
 
 .rounded_corners (@radius: 5px) {
@@ -14,14 +14,15 @@ body {
  * Colors
  *****************************************************************************/
 
+@body_color: #f7f7f7;
 @header_color: #e20048;
 @header_fg_color: #fff;
 @header_color_stripe: #93002f;
-@card_color: #f1f1f1;
-@card_color_hover: #e7e7e7;
+@card_color: #e7e7e7;
+@card_color_hover: #f1f1f1;
 @card_fg_color: #484848;
 @card_count_fg_color: #fff;
-
+@code_color:#d8d8d8;
 
 /******************************************************************************
  * Header
@@ -341,43 +342,56 @@ body {
     left:58px;
   }
   
-  .section {
+  
+}
+
+.section {
+  .rounded_corners;
+  padding:10px;
+  margin-bottom:15px;
+  background-color:@card_color;
+  
+  .title {
+    font-size:1.2em;
+    font-weight:bold;
+  }
+  
+  dl {
+    padding:7px;
     .rounded_corners;
+    background-color:#ffe;
+    overflow:auto;
+  }
+  
+  .occurence {
+    .rounded_corners;
+    background-color:#ffe;
+    margin-bottom:10px;
     padding:10px;
-    margin-bottom:15px;
-    background-color:@card_color;
     
     .title {
-      font-size:1.2em;
       font-weight:bold;
+      font-size:1em;
     }
     
-    dl {
-      padding:7px;
-      .rounded_corners;
-      background-color:#ffe;
-      overflow:auto;
+    .occured_at {
+      float:right;
+      margin-right:70px;
     }
     
-    .occurence {
-      .rounded_corners;
-      background-color:#ffe;
-      margin-bottom:10px;
-      padding:10px;
-      
-      .title {
-        font-weight:bold;
-        font-size:1em;
-      }
-      
-      .occured_at {
-        float:right;
-        margin-right:70px;
-      }
-      
-      .container {
-        display:none;
-      }
+    .container {
+      display:none;
     }
   }
+}
+
+code {
+  .rounded_corners;
+  padding:5px;
+  background-color:@code_color;
+}
+
+.block-code {
+  display:block;
+  margin-bottom:15px;
 }
