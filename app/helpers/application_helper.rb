@@ -27,6 +27,10 @@ module ApplicationHelper
     end
   end
   
+  def show_header_navigation?
+    controller_name != "home"
+  end
+  
   def slogan
     SLOGANS.sort_by { rand }.first
   end
