@@ -3,4 +3,4 @@
   %dl
     - section.fields.each do |field|
       %dt= field.title
-      %dd{:class => (field.backtrace?? "backtrace" : "")}= simple_format(field.value)
+      %dd{:class => (field.backtrace?? "backtrace" : "")}= simple_format(h(field.value))
