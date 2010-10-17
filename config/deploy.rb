@@ -5,7 +5,6 @@ set :scm, :git
 
 server "li220-76.members.linode.com", :app, :web, :db, :primary => true
 set :user, "www-data"
-set :password, "y34ZjdlAPf7"
 set :use_sudo, false
 set :deploy_to, "/var/rails/#{application}"
 set :rails_env, "production"
