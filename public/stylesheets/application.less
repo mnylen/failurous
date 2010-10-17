@@ -22,8 +22,9 @@ p {
 @header_color: #e20048;
 @header_fg_color: #fff;
 @header_color_stripe: #93002f;
-@card_color: #e7e7e7;
+@card_color: #c7c7c7;
 @card_color_hover: #f1f1f1;
+@card_color_closed: #e7e7e7;
 @card_fg_color: #484848;
 @card_count_fg_color: #fff;
 @code_color:#d8d8d8;
@@ -150,6 +151,13 @@ p {
           color: #336699;
       }
       
+    }
+    
+    .footer {
+        float: left;
+        margin: 20px;
+        width: 100%;
+        text-align: center;
     }
     
     
@@ -320,6 +328,9 @@ p {
   }
 }
 
+.closed {
+  background-color:@card_color_closed;
+}
 
 /******************************************************************************
  * Fail details
@@ -390,6 +401,10 @@ p {
     .container {
       display:none;
     }
+  }
+
+  .section {
+    width: 93%;
   }
 }
 
