@@ -1,6 +1,6 @@
 module ApplicationHelper
   def selected_project_path
-    if @project
+    if @project and !(@project.new_record?)
       project_path(@project)
     else
       ''
