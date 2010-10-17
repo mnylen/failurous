@@ -59,11 +59,11 @@ Finally, configure the Failurous Java client to intercept exceptions by adding i
 		<filter-class>failurous.ClientFilter</filter-class>
 		<init-param>
 			<param-name>serverAddress</param-name>
-			<param-value>http://localhost:3000/</param-value>
+			<param-value><FAILUROUS-INSTALLATION></param-value>
 		</init-param>
 		<init-param>
 			<param-name>apiKey</param-name>
-			<param-value>0461a53a-b833-4f35-b484-0deff73a5d7c</param-value>
+			<param-value><API-KEY-FOR-PROJECT></param-value>
 		</init-param>
 	</filter>
 	
