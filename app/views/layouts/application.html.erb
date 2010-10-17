@@ -17,16 +17,9 @@
     <div class="header">
       <div class="container">
         <h1 class="logo">
-          <span></span> FAILurous
-        </h1>
-        
-        <%= link_to('Radiator', radiator_path, :class => 'button') %>
-        <%= link_to('New project', new_project_path, :class => 'button') %>
-        
-        <div class="project-selector">
-          Project:
-          <%= select_tag :goto, options_for_select(projects_choices(@projects), :selected => selected_project_path) %>
-        </div>
+          <a href="/projects"><span></span></a> FAILurous
+        </h1>       
+        <%= render :partial => "shared/navigation" if show_header_navigation? %>
       </div>
     </div>
     
