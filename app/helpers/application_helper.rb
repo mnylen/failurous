@@ -30,7 +30,8 @@ module ApplicationHelper
     "All your fail are belong to us",
     "How's it failing'?",
     "Failing is our business",
-    "Enterprise grade exception tracking since java.text.ParseException: Unparseable date"
+    "Enterprise grade exception tracking since java.text.ParseException: Unparseable date",
+    "TooManySlogansException"
   ]
 
   def selected_project_path
