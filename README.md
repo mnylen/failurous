@@ -25,6 +25,31 @@ Next you need to add the following under config/initializer/failurous.rb:
 
     Rails.application.config.middleware.insert_before(Rails.application.config.session_store,
       Failurous::FailMiddleware)
+      
+The middleware will automatically catch any exceptions your app raises and
+deliver them to the Failurous service for later viewing.
+
+## Sending fails
+
+Often there's cases where it'd be desirable to be able to send debugging
+information or notifications of "failurous" behaviour in your application. For
+example, when someone tries to access protected content without proper access
+rights.
+
+Failurous comes in handy here, because it's not limited to only
+exceptions: you can actually send any data you like.
+
+### In Rails applications
+
+To send your custom fails to Failurous, you can use the
+`Failurous::FailNotification` to build your fail and send it. The syntax is
+as follows:
+
+    Failurous::FailNotification.set_title('Title for your fail').
+      add_field(:section_name, :field_name, {:use_in_checksum => true | false}).
+      add_field(:another, :field, {...}).
+      send
+
 
 ## License
 
