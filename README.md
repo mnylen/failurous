@@ -17,6 +17,7 @@ When you have these two installed, and MongoDB is up and running, just clone thi
 
 * [Rails 3](http://github.com/mnylen/failurous-rails) - failurous-rails
 
+
 #### Java
 
 To integrate Failurous to a Java webapp, first add the Failurous Maven repository to your Maven POM:
@@ -64,30 +65,6 @@ The filter will automatically catch any exceptions your app threw and deliver th
 
 Notice that the position of the filter-mapping element affects which exceptions Failurous will report. Any filter mappings appearing before the failurous filter mapping in web.xml will not be reported, since they are executed outside its scope.
 
-## Sending fails
-
-Often there's cases where it'd be desirable to be able to send debugging
-information or notifications of "failurous" behaviour in your application. For
-example, when someone tries to access protected content without proper access
-rights.
-
-Failurous comes in handy here, because it's not limited to only
-exceptions: you can actually send any data you like.
-
-### In Rails applications
-
-To send your custom fails to Failurous, you can use the
-`Failurous::FailNotification` to build your fail and send it. The syntax is
-as follows:
-
-    Failurous::FailNotification.set_title('Title for your fail').
-      add_field(:section_name, :field_name, {:use_in_checksum => true | false}).
-      add_field(:another, :field, {...}).
-      send
-
-### In Java applications
-
-The Java client does not yet support this feature.
 
 ## License
 
