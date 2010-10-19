@@ -5,8 +5,6 @@ live applications.
 
 ## Installation
 
-### Server
-
 The Failurous server is pretty much just a cookie-cutter Rails 3 application, which uses MongoDB as the backend. As prerequisites you'll need:
 
 * [MongoDB](http://www.mongodb.org/downloads)
@@ -15,26 +13,9 @@ The Failurous server is pretty much just a cookie-cutter Rails 3 application, wh
 When you have these two installed, and MongoDB is up and running, just clone this repository and run `bundle install` to install the required gems. Then hit `rails server -e production` to start the app. By default the server will start in port 3000.
 
 
-### Clients
+## Clients
 
-#### Rails 3
-
-To use Failurous from Rails 3 application, add this to your Gemfile:
-
-    gem 'failurous-rails', :git => 'git://github.com/railsrumble/rr10-team-256.git'
-
-
-Next you need to add the following under config/initializer/failurous.rb:
-
-    require 'failurous'
-
-    Failurous::Config.server_address = '<FAILUROUS-INSTALLATION>'
-    Failurous::Config.api_key = '<API-KEY-FOR-PROJECT>'
-
-    Rails.application.config.middleware.use Failurous::FailMiddleware
-      
-The middleware will automatically catch any exceptions your app raises and
-deliver them to the Failurous service for later viewing.
+* [Rails 3](http://github.com/mnylen/failurous-rails) - failurous-rails
 
 #### Java
 

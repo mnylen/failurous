@@ -19,7 +19,6 @@ end
 group :development do
   gem "thin"
   gem "capistrano"
-  gem "jeweler"
 end
 
 group :test do
