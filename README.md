@@ -20,7 +20,7 @@ When you have these two installed, and MongoDB is up and running, just clone thi
 
 ## Support & Bug Reports
 
-[http://failurous.lighthouseapp.com/dashboard]
+[Failurous Lighthouse](http://failurous.lighthouseapp.com/dashboard)
 
 ## License
 
