@@ -18,6 +18,10 @@ When you have these two installed, and MongoDB is up and running, just clone thi
 * Rails 3 - [failurous-rails](http://github.com/mnylen/failurous-rails)
 * Java - [failurous-java](http://github.com/teropa/failurous-java)
 
+## Support & Bug Reports
+
+[http://failurous.lighthouseapp.com/dashboard]
+
 ## License
 
 Copyright (c) 2010 Mikko Nylén, Tero Parviainen & Antti Forsell
