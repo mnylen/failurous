@@ -40,5 +40,6 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
+    @fails = @project.open_fails
   end
 end

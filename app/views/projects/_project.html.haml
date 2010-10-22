@@ -1,2 +1,5 @@
-%div{:class => project_css_class(project) }
-  =link_to(project.name, project_path(project))
+.project
+  -link_to(project_path(project), {:class => 'button neutral project-button'}) do
+    =project.name
+    %span.count.negative
+      10
