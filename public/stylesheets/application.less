@@ -178,19 +178,11 @@ a.button {
         .header {
             background:url('/images/expand.png') no-repeat 10px 50%;
         }
-
-        .data {
-            display:none;
-        }
     }
 
     &.expanded {
         .header {
             background:#edfbff url('/images/collapse.png') no-repeat 10px 50%;
-        }
-
-        .data {
-            display:block;
         }
     }
 
@@ -265,6 +257,8 @@ a.button {
     }
 
     .data {
+        display:none;
+
         .controls {
             padding:10px;
             border-bottom:1px solid #b8b8b7;
