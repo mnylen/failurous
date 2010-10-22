@@ -1,39 +1,9 @@
-
-.project-details
-  %h2.name= @project.name
+%h2.name
+  =@project.name
+  =link_to("(api key & settings)", edit_project_path(@project))
   
-  -if params[:created]
-    .clear
-    =render :partial => 'projects/instructions', :locals => {:title => 'Congratulations! Your project has been created.'}
-  -else
-    .actions
-      =link_to('Project settings', edit_project_path(@project), :class => 'button positive')
-        
-    - open = link_to 'open', '?show=open'
-    - closed = link_to 'closed', '?show=closed'
-    - all = link_to 'all', '?show=all'
-    
-    - unless @project.has_fails?
-      .info-text
-        Congratulations, your project hasn't failed yet.
-    - else
-      - if params[:show] == 'all'
-        - @fails = @project.fails.order_by(:acknowledged.desc).reverse
-        - info = open + ' | ' + closed + ' | ' + 'all'
-      - elsif params[:show] == 'closed'
-        - @fails = @project.closed_fails
-        - info = open + ' | ' + 'closed' + ' | ' + all
-      - else # open fails, default
-        - @fails = @project.open_fails
-        - info = 'open' + ' | ' + closed + ' | ' + all
+-unless @project.has_fails?
+  Congratulations! This project hasn't failed since the last time you looked here.
 
-      - if @fails.empty?
-        .info-text
-          = info.html_safe
-          %br
-          No fails to show.
-      - else
-        .info-text
-          = info.html_safe
-        - @fails.each do |fail|
-          = render fail
+-@fails.each do |fail|
+  =render :partial => fail

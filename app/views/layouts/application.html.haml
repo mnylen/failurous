@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %title= Failurous
+    =stylesheet_link_tag 'blueprint/screen', :media => 'screen, projection'
+    =stylesheet_link_tag 'formtastic', :media => 'screen, projection'
+    ="<!--[if lt IE 8]>".html_safe
+    = stylesheet_link_tag "blueprint/ie.css", :media => "screen, projection"
+    ="<![endif]-->".html_safe
+    =stylesheet_link_tag 'application.less', :rel => 'stylesheet/less'
+    =sprockets_include_tag
+    =csrf_meta_tag
+  %body
+  
+    #wrapper
+      #header-container
+        #header
+          #logo
+            %h1 Failurous
+      
+          #radiator
+            =link_to('Radiator', radiator_path, :class => 'button neutral')
+    
+    
+          .clear
+
+      #content-wrapper
+        #project-selector
+          =render :partial => 'projects/project', :collection => @projects
+        
+        #content
+          =yield
+    

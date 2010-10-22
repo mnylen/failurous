@@ -11,15 +11,7 @@ class Fail
   referenced_in :project
 
   def location
-    occurences.first.sections.each do |section|
-      section.fields.each do |field|
-        if field.key == "location"
-          return field.value
-        end
-      end
-    end
-    
-    ""
+    "hell#deep"
   end
   
   def last_occurence

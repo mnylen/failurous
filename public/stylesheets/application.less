@@ -1,453 +1,311 @@
+html, body {
+    height:100%;
+}
+
 body {
-  font-family:Verdana, Arial, sans-serif;
-  font-size:0.7em;
-  background-color:@body_color;
+    background-color:#efefef;
+    font-family:'Trebuchet MS', Verdana, 'Helvetica Neue', sans-serif;
+    font-size:0.75em;
 }
 
 .rounded_corners (@radius: 5px) {
-  -moz-border-radius: @radius;
-  -webkit-border-radius: @radius;
-  border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
 }
 
-p {
-  text-indent:0 !important;
+a {
+    color:#0d90c7;
+}
+
+h2 {
+    font-size:1.4em;
+
+    a {
+        font-size:0.7em; 
+    }
+}
+
+
+/******************************************************************************
+* Buttons
+*****************************************************************************/
+
+.button {
+    .rounded_corners;
+    border:1px solid #dcdcdc;
+    padding:4px;
+    color:#2e2e2e;
+
+    &.neutral {
+        background:url('/images/button_neutral_background.png') repeat top left;
+
+        &:hover {
+            background:url('/images/button_neutral_background_hover.png') repeat top left  
+        }
+    }
+
+    &.positive {
+        border:1px solid #ffb43c;
+        background:url('/images/button_positive_background.png') repeat top left;
+
+        &:hover {
+            background:url('/images/button_positive_background_hover.png') repeat top left;
+        }
+    }
+}
+
+a.button {
+    color:#2e2e2e;
+    font-weight:bold;
+    text-decoration:none;
 }
 
 /******************************************************************************
- * Colors
- *****************************************************************************/
+* Header
+*****************************************************************************/
 
-@body_color: #f7f7f7;
-@header_color: #e20048;
-@header_fg_color: #fff;
-@header_color_stripe: #93002f;
-@card_color: #f1f1f1;
-@card_color_hover: #e0e0e0;
-@card_color_closed: #eaeaea;
-@card_fg_color: #484848;
-@card_count_fg_color: #fff;
-@code_color:#d8d8d8;
 
-/******************************************************************************
- * Header
- *****************************************************************************/
-
-.header {
-  margin:0 0 70px 0;
-  padding:0;
-  height:30px;
-  background-color:@header_color;
-  color:@header_fg_color;
-  border-bottom:6px solid @header_color_stripe;
-  
-  .logo {
+#header-container {
+    margin:0 auto;
+    background:url('/images/header_background.png') repeat-x;
     position:absolute;
-    top:10px;
+    width:100%;
+    left:0;
+}
+
+#header {
+    margin:0 auto;
+    left:0;
+    width:90%;
+    height:40px;
+
+    #logo {
+        float:left;
+        width:148px;
+        height:40px;
+        background:url('/images/logo.png') no-repeat left center;
+
+        h1 {
+            display:none;
+        }
+    }
+
+    #radiator {
+        float:right;
+        position:relative;
+        top:0.9em;
+    }
+}
+
+/******************************************************************************
+* Content
+*****************************************************************************/
+
+#wrapper {
+    width:90%;
+    margin:0 auto;
+    overflow:auto;
+    height:0 auto !important;
+    min-height:100%;
+    background:white;
+    border-left:3px solid #ddd;
+    border-right:3px solid #ddd;
+}
+
+#content-wrapper {
+    overflow:auto;
+    margin:70px auto;
+}
+
+#project-selector {
+    margin:0 auto;
+    overflow:auto;
+    width:18%;
     float:left;
+
+    .project {
+        margin:0 auto;
+        width:65%;
+        margin-bottom:8px;
+
+        .button {
+            font-size:0.9em;
+            display:block; 
+        }
+
+        .count {
+            float:right;
+
+            &.positive {
+                color:#48a000; 
+            }
+
+            &.negative {
+                color:#e80000;
+            }
+        }
+    }
+}
+
+#content {
+    overflow:auto;
+    float:left;
+    width:79%;
     margin:0;
-    padding:0;
-    width:79px;
-    height:69px;
-    color:transparent;
-    position:relative;
-
-    span {
-      background:url('/images/logo.png') no-repeat;
-      position:absolute;
-      width:100%;
-      height:100%;
-    }
-  }
-  
-  .project-selector {
-    position:relative;
-    top:1px;
-    margin-right:15px;
-    float:right;
-    font-weight:bold;
-    
-    select {
-      height:20px;
-    }
-  }
-  
-  .button {
-    position:relative;
-    top:-3px;
-    padding:3px !important;
-    -webkit-border-radius:5px;
-    float:right;
-  }
 }
 
-/******************************************************************************
- * Home page
- *****************************************************************************/
+.fail {
+    .rounded_corners;
+    border:1px solid #b8b8b7;
+    margin-bottom:10px;
 
-.home {
-    
-    .intro {
-      margin-top: 35px;
-      font-size: 2.5em;
-      text-align: center;
-    }
-    
-    .ss1 {
-      float: left;
-      width: 450px;
-      height: 516px;
-      background-image: url('/images/failurous_ss1.png');
-    }
-    
-    .ss2 {
-      float: right;
-      width: 450px;
-      height: 516px;      
-      background-image: url('/images/failurous_ss2.png');      
+    &.resolved {
+        &.collapsed {
+            .header {
+                background:#e1f8bc url('/images/expand.png') no-repeat 10px 50%;
+            }    
+        }
+
+        &.expanded {
+            .header {
+                background:#e1f8bc url('/images/collapse.png') no-repeat 10px 50%;
+            }
+        }
     }
 
-    .overview {
-      float: left;
-      clear: both;
-      width: 100%;
-      margin-top: -150px;
-      font-size: 1.5em;      
-      font-weight: bold;
-      text-align: center;    
-    }
-          
-    .lhs {
-      float: left;
-      margin-top: -100px;
-      width: 50%;
-      font-size: 1.5em;
+    &.collapsed {
+        .header {
+            background:url('/images/expand.png') no-repeat 10px 50%;
+        }
 
-      .features {
-        margin-top: 25px;
-      }
-      
-    }
-    
-    .rhs {
-      float: right;
-      margin-top: -30px;
-      width: 50%;
-            
-      .link {
-        margin-left: 20px;
-        font-size: 1.5em;
-        margin-top: 25px;
-      }
-      
-      .link a {
-          display: block;
-          margin-left: 50px;
-          width: 350px;
-          text-align: center;
-          
-          /* Blueprint hover style always applied to these buttons */
-          background-color: #DFF4FF;
-          border: 1px solid #C2E1EF;
-          color: #336699;
-      }
-      
-    }
-    
-    .footer {
-        float: left;
-        margin: 20px;
-        width: 100%;
-        text-align: center;
-    }
-    
-    
-}
-
-/******************************************************************************
- * Content
- *****************************************************************************/
- 
-.content {
-  margin-top:10px;
-  clear:both;
-}
-
-.count-badge() {
-  .rounded_corners(8px);
-  color:@card_count_fg_color;
-  background:transparent url('/images/count_background.png') repeat-x;
-  font-size:1.3em;
-  font-weight:bold;
-  text-align:center;
-  padding:5px;
-  width:30px;
-}
-
-/******************************************************************************
- * Forms
- *****************************************************************************/
-
-.formtastic {
-  .rounded_corners;
-  background-color:@card_color;
-  padding:10px !important;
-  margin-bottom:15px !important;
-  
-  fieldset.inputs {
-    .string {
-      input {
-        padding:6px;
-        font-weight:bold;
-        font-size:1.2em;
-      }
-      
-      input.readonly {
-        padding:0;
-        font-weight:normal;
-        font-size:1em;
-        border:none;
-        background:transparent;
-      }
-    }
-    
-    li {
-      margin-bottom:9px;
-      
-      label {
-        margin-bottom:3px;
-        display:block;
-        float:none;
-      }
-    }
-  }
-  
-  fieldset.buttons {
-    padding:0 !important;
-    margin:0 !important;
-
-    a, input {
-      display: block;
-      float: left;
-      margin: 0 7px 0 0;
-      background-color: #f5f5f5;
-      border-bottom: 1px solid #dedede;
-      border-right: 1px solid #dedede;
-      border-top: 1px solid #eee;
-      border-left: 1px solid #eee;
-
-      font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
-      font-size:100%;
-      line-height:130%;
-      text-decoration:none;
-      font-weight:bold;
-      color:#565656;
-      cursor:pointer;
-      padding:5px 10px 6px 7px; /* Links */
+        .data {
+            display:none;
+        }
     }
 
-    .positive, .negative {
-      background-repeat: no-repeat;
-      background-position: 5px center;
-      padding-left: 25px !important;
+    &.expanded {
+        .header {
+            background:#edfbff url('/images/collapse.png') no-repeat 10px 50%;
+        }
+
+        .data {
+            display:block;
+        }
     }
 
-    .positive {
-      background-image: url('/images/icons/accept.png');
+    &.resolved {
+        .header {
+            .left {
+                padding:0 0 10px 0;
+            }
+        }
+        
+        .state {
+            margin-top:5px;
+            color:#059921; 
+        }
+        
+        .right {
+            margin-top:10px;
+        }
     }
 
-    .negative {
-      background-image: url('/images/icons/cancel.png');
+    .header {
+        padding:10px 10px 0 10px;
+        padding-left:40px;
+        overflow:auto;    
+
+        .left {
+            margin-top:5px;
+            float:left;
+        }
+
+        .right {
+            float:right;
+        }
+
+        h3.title {
+            font-size:1.1em;
+            font-weight:bold;
+            color:#0d90c7;
+            margin-bottom:0;
+        }
+
+        .count {
+            display:inline-block;
+            width:39px;
+            height:39px;
+            padding-top:0.6em;
+            font-size:1.3em;
+            font-weight:bold;
+            color:white;
+            text-align:center;
+            background:transparent url('/images/count_background.png') no-repeat top left;
+        }
+
+        .location {
+            font-size:1em;
+        }
+
+        .last_occured_at {
+            margin-right:15px;
+            font-weight:bold;
+            font-size:1.1em;
+            color:#c1c1c1;
+        }
+
+        .state {
+            font-weight:bold;
+        }
+
+        &:hover {
+            background-color:#edfbff
+        }
     }
-  }
-}
 
+    .data {
+        .controls {
+            padding:10px;
+            border-bottom:1px solid #b8b8b7;
+            border-top:1px solid #b8b8b7;
 
-/******************************************************************************
- * Project details
- *****************************************************************************/
+            .occurences {
+                font-weight:bold;
+                color:#676363;
+                margin-left:10%;
+                width:80%;
+                text-align:center;
+                float:left;
+                
+                .previous {
+                    margin-right:15px;
+                }
+                
+                .next {
+                    margin-left:15px;
+                }
+            }
 
-.project-details {
-  .name {
-    float:left;
-    margin-right:15px;
-  }
-  
-  .actions {
-    clear:left;
-  }
-
-  .info-text {
-    clear: left;
-    padding-bottom: 10px;
-  }
-}
-
-/******************************************************************************
- * Fail cards
- *****************************************************************************/
-
-.fail-link, .fail-link:hover {
-  color:@card_fg_color;
-  text-decoration:none;
-}
-
-
-.fail-card:hover {
-  background-color:@card_color_hover;
-  text-decoration:none;
-  color:black;
-}
-
-.fail-card {
-  .rounded_corners;
-  clear:both;
-  
-  background-color:@card_color;
-  padding:10px;
-  margin-bottom:15px;
-  
-  .title {
-    font-size:1.2em;
-    font-weight:bold;
-    color:@card_fg_color;
-  }
-  
-  
-  .count {
-    position:relative;
-    bottom:2.5em;
-    float:right;
-    .count-badge;
-  }
-  
-  .last_occurence_at {
-    position:relative;
-    bottom:2.5em;
-    margin-right:15px;
-    float:right;
-  }
-}
-
-.closed {
-  background-color:@card_color_closed;
-}
-
-/******************************************************************************
- * Fail details
- *****************************************************************************/
- 
-.fail-details {
-  margin-top:15px;
-  
-  h2 {
-    float:left;
-  }
-  
-  .count {
-    float:left;
-    .count-badge;
-    margin-right:15px;
-  }
-  
-  .occured_at {
-    position:relative;
-    top:-15px;
-    left:58px;
-  }
-  
-  .actions {
-    position:relative;
-    top:-15px;
-    left:58px;
-  }
-  
-  
+            .actions {
+                float:right;
+            }
+        }
+    }
 }
 
 .section {
-  .rounded_corners;
-  padding:10px;
-  margin-bottom:15px;
-  background-color:@card_color;
-  
-  .title {
-    font-size:1.2em;
-    font-weight:bold;
-  }
-  
-  dl {
-    padding:7px;
-    .rounded_corners;
-    background-color:#ffe;
-    overflow:auto;
-  }
-  
-  .occurence {
-    .rounded_corners;
-    background-color:#ffe;
-    margin-bottom:10px;
-    padding:10px;
-    
-    .title {
-      font-weight:bold;
-      font-size:1em;
-    }
-    
-    .occured_at {
-      float:right;
-      margin-right:70px;
-    }
-    
-    .container {
-      display:none;
-    }
-  }
+    color:#4d4d4d;  
+    padding:20px;
 
-  .section {
-    width: 93%;
-  }
-}
-
-pre {
-  .rounded_corners;
-  padding:5px;
-  background-color:@code_color;
-}
-
-
-.ui-tabs .ui-tabs-hide {
-     display: none;
-}
-
-.instruction-tabs {
-  ul {
-    display:block;
-    background-color:@card_color_hover;
-    overflow:auto;
-    
-    li {
-      border-top:1px solid @card_fg_color;
-      border-left:1px solid @card_fg_color;
-      border-right:1px solid @card_fg_color;
-      text-align:center;
-      margin-right:5px;
-      list-style-type:none;
-      border-radius:5px 5px 0 0;
-      font-size:0.9em;
-      float:left;
-      width:100px;
-      padding:3px;
-      font-weight:bold;
-      
-      a {
-        color:@card_fg_color;
-        text-decoration:none;
-      }
+    h3, dt {
+        font-weight:bold;
     }
-    
-    li.ui-state-active {
-      background-color:@card_color;
+
+    h3 {
+        font-size:1.2em;
+        border-bottom:1px solid #d6d6d6;
+        padding-bottom:5px;
+        color:#676363;
     }
-  }
 }

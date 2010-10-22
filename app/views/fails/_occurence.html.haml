@@ -1,3 +1,20 @@
-- occurence.sections.each do |section|
-  = render :partial => "fails/section", :object => section
-  .clear
+.data
+  .controls
+    .actions
+      =link_to('Resolve', '', {:class => 'button positive'})
+      
+    .occurences
+      %span.previous
+        &laquo; Previous
+    
+      %span.datetime
+        Showing occurence at
+        =l(occurence.occured_at, :format => :occured_at)
+    
+      %span.next
+        =link_to('Next &raquo;'.html_safe, '')
+  
+    .clear
+
+  -occurence.sections.each do |section|
+    =render :partial => "fails/section", :object => section
