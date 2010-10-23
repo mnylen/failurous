@@ -34,31 +34,40 @@ class Fail
   def ack!
     self.update_attributes!(:acknowledged => true)
   end
-  
-  # Builds a new Occurence from the attributes and tries to combine
-  # it with an existing Fail
+ 
+
   def self.create_or_combine_with_similar_fail(project, attributes)
-    now        = Time.now
     attributes = HashWithIndifferentAccess.new(attributes)
     checksum   = calculate_checksum(attributes[:data])
-    occurence  = Occurence.new(attributes) do |occurence|
-      occurence.occured_at = now
-    end
+    occurence  = Occurence.new(attributes.merge({:occured_at => Time.now}))
     
-    fail = Fail.where(:project_id => project.id, :checksum => checksum).first || Fail.create(:project_id => project.id, :checksum => checksum)
-    fail.occurences << occurence
-    fail.title = attributes[:title]
-    fail.last_occurence_at = now
-    fail.increase_count
-    fail.acknowledged = false
-    fail.save
-        
+    fail = find_by_checksum_and_project_or_build_new(project, checksum) 
+    update_fail_attributes(fail, occurence, attributes)
+
     fail
   end
   
-  
+
   private
-    
+
+    def self.update_fail_attributes(fail, new_occurence, attributes)
+      fail.occurences << new_occurence
+      fail.title = attributes[:title]
+      fail.last_occurence_at = Time.now 
+      fail.increase_count
+      fail.acknowledged = false
+      fail.save
+    end
+
+    def self.find_by_checksum_and_project_or_build_new(project, checksum)
+      fail = Fail.where(:project_id => project.id, :checksum => checksum).first
+      unless fail
+        fail = Fail.new(:project_id => project.id, :checksum => checksum)
+      end
+
+      fail
+    end
+
     def self.calculate_checksum(data)
       md5 = Digest::MD5.new
       
