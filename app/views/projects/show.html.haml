@@ -4,6 +4,15 @@
   
 -unless @project.has_fails?
   Congratulations! This project hasn't failed since the last time you looked here.
+-else
+  .options
+    Show resolved:
+
+    .toggler
+      %span.on.enabled
+        =link_to('on', '')
+      %span.off.disabled
+        =link_to('off', '')
 
 -@fails.each do |fail|
   =render :partial => fail
