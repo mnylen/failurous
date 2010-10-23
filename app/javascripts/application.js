@@ -8,4 +8,16 @@ jQuery(document).ready(function($) {
   radiator.updatePeriodically();
 
   fail.toggleExpanded();
+
+  // TODO: Update next & previous on occurence collection when new occurence comes in
+
+  // TODO: Loading of occurences from next and previous links
+
+  // TODO: Showing resolved on/off
+
+  // TODO: Marking fail as resolved
+
+  // TODO: Collapsing other fails when new is expanded
+
+  // TODO: Project fail count
 });

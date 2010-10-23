@@ -14,6 +14,28 @@ body {
     border-radius: @radius;
 }
 
+.advanced_rounded_corners(@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
+    -webkit-border-bottom-right-radius: @bottomright @bottomright;
+    -webkit-border-bottom-left-radius: @bottomleft @bottomleft;
+    -webkit-border-top-right-radius: @topright @topright;
+    -webkit-border-top-left-radius: @topleft @topleft;
+    -moz-border-radius-bottomright: @bottomright @bottomright;
+    -moz-border-radius-bottomleft: @bottomleft @bottomleft;
+    -moz-border-radius-topright: @topright @topright;
+    -moz-border-radius-topleft: @topleft @topleft;
+    border-bottom-right-radius: @bottomright @bottomright;
+    border-bottom-left-radius: @bottomleft @bottomleft;
+    border-top-right-radius: @topright @topright;
+    border-top-left-radius: @topleft @topleft;
+}
+
+.bordered(@color: black, @top: 1px, @right: 1px, @bottom: 1px, @left: 1px) {
+    border-top:@top solid @color;
+    border-right:@right solid @color;
+    border-bottom:@bottom solid @color;
+    border-left:@left solid @color;
+}
+
 a {
     color:#0d90c7;
 }
@@ -55,10 +77,55 @@ h2 {
     }
 }
 
-a.button {
+a.button, .toggler a {
     color:#2e2e2e;
-    font-weight:bold;
     text-decoration:none;
+}
+
+a.button {
+    font-weight:bold;
+}
+
+.toggler {
+    .rounded_corners(8px);
+    border:1px solid #dcdcdc;
+    display:inline-block;
+
+    .on, .off {
+        width:30px;
+        text-align:center;
+        display:inline-block;
+        padding:2px;
+        margin:0;
+
+        &:hover {
+            background:url('/images/button_neutral_background_hover.png') repeat top left  
+        }
+    }
+
+    .on.enabled, .off.enabled {
+        background:url('/images/button_neutral_background_hover.png') repeat top left;
+    }
+
+    .on.disabled, .off.disabled {
+        background-color:#626262;
+        color:#fff;
+
+        &:hover {
+            a {
+                color:#2e2e2e;
+            }
+        }
+
+        a {
+            color:#fff;
+
+
+            &:hover {
+                color:#2e2e2e;
+            }
+        }
+    }
 }
 
 /******************************************************************************
@@ -155,9 +222,11 @@ a.button {
     margin:0;
 }
 
+.options {
+    margin-bottom:20px;
+}
+
 .fail {
-    .rounded_corners;
-    border:1px solid #b8b8b7;
     margin-bottom:10px;
 
     &.resolved {
@@ -176,13 +245,22 @@ a.button {
 
     &.collapsed {
         .header {
+            .rounded_corners;
+            .bordered(#b8b8b7);
             background:url('/images/expand.png') no-repeat 10px 50%;
         }
     }
 
     &.expanded {
         .header {
+            .advanced_rounded_corners(5px, 5px, 0, 0);
+            .bordered(#b8b8b7, 1px, 1px, 0, 1px);
             background:#edfbff url('/images/collapse.png') no-repeat 10px 50%;
+        }
+
+        .data {
+            .advanced_rounded_corners(0, 0, 5px, 5px);
+            .bordered(#b8b8b7, 0, 1px, 1px, 1px);
         }
     }
 
