@@ -128,6 +128,14 @@ describe Fail do
 
       lambda { Fail.create_or_combine_with_similar_fail(another_project, @attributes) }.should change(Fail, :count).by(1)
     end
+
+    it "should update 'next_occurence_id' on the previous occurence and 'previous_occurence_id' on the new occurence" do
+      Fail.create_or_combine_with_similar_fail(@project, @attributes)
+      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
+
+      fail.occurences.first.next_occurence_id.should == fail.occurences.last.id.to_s
+      fail.occurences.last.previous_occurence_id.should == fail.occurences.first.id.to_s
+    end
   end
   
   describe "title" do

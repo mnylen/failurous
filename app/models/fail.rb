@@ -80,11 +80,17 @@ class Fail
     end
 
     def self.update_fail_attributes(fail, new_occurence, attributes)
-      fail.occurences << new_occurence
       fail.title = attributes[:title]
       fail.last_occurence_at = Time.now 
       fail.increase_count
       fail.acknowledged = false
+
+      if fail.occurences.last
+        new_occurence.previous_occurence_id = fail.occurences.last.id
+        fail.occurences.last.next_occurence_id = new_occurence.id
+      end
+
+      fail.occurences << new_occurence
       fail.save
     end
 
