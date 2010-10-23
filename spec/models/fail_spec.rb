@@ -20,39 +20,113 @@ describe Fail do
     }
   end
 
-  describe "create_new_or_combine_with_similar_fail" do
-    it "should create new when there's no other fails in the db" do
-      lambda {
-        Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      }.should change(Fail, :count).by(1)
+  describe "calculate_checksum_from_notification" do
+
+    context "using title in checksum" do
+      it "should use title in checksum if notification[:use_title_in_checksum] == true" do
+        title_checksum("lorem").should_not == title_checksum("ipsum")
+      end
+
+      it "should not use title in checksum if notification[:use_title_in_checksum] == false" do
+        title_checksum("lorem", false).should == title_checksum("ipsum", false)
+      end
+
+      def title_checksum(title, use_in_checksum = true)
+        Fail.calculate_checksum_from_notification({:title => title, :use_title_in_checksum => use_in_checksum})
+      end
     end
-    
-    it "should set last_occurence_at to the current date and time for the fail" do
-      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      fail.last_occurence_at.should_not be_nil
+
+
+    context "using location in checksum" do
+      it "should use location in checksum by default" do
+        location_checksum("heaven#show").should_not == location_checksum("heaven#fall")
+      end
+
+      it "should not use location in checksum when notification[:use_location_in_checksum] == false" do
+        location_checksum("heaven#show", false).should == location_checksum("heaven#fall", false)
+      end
+
+      def location_checksum(location, use_in_checksum = true)
+        notification = {:location => location}
+        notification[:use_location_in_checksum] = false unless use_in_checksum
+        Fail.calculate_checksum_from_notification(notification)
+      end
     end
-    
-    it "should create and store occurence for the fail" do
-      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      fail.occurences.size.should == 1
+
+
+    context "using field values in checksum" do
+      it "should use the field value in checksum if options[:use_in_checksum] == true" do
+        x = field_checksum(:summary, :type, "NoMethodError")
+        y = field_checksum(:summary, :type, "ActionController::RoutingError")
+        x.should_not == y
+      end
+
+      it "should use the field name in checksum if options[:use_in_checksum] == true" do
+        x = field_checksum(:summary, :type, "NoMethodError")
+        y = field_checksum(:summary, :message, "NoMethodError")
+        x.should_not == y
+      end
+
+      it "should use the section name in checksum if options[:use_in_checksum] == true" do
+        x = field_checksum(:summary, :type, "NoMethodError")
+        y = field_checksum(:details, :type, "NoMethodError")
+        x.should_not == y
+      end
+
+
+      it "should not use the field value in checksum if options[:use_in_checksum] == false" do
+        x = field_checksum(:summary, :type, "NoMethodError", false)
+        y = field_checksum(:summary, :type, "ActionController::RoutingError", false)
+        x.should == y
+      end
+
+      it "should not use the field name in checksum if options[:use_in_checksum] == false" do
+        x = field_checksum(:summary, :type, "NoMethodError", false)
+        y = field_checksum(:summary, :message, "NoMethodError", false)
+        x.should == y
+      end
+
+      it "should not use the section name in checksum if options[:use_in_checksum] == false" do
+        x = field_checksum(:summary, :type, "NoMethodError", false)
+        y = field_checksum(:details, :type, "NoMethodError", false)
+        x.should == y
+      end
+
+
+      def field_checksum(section_name, field_name, value, use_in_checksum = true)
+        notification = {:data => [ [section_name, [ [field_name, value, {:use_in_checksum => use_in_checksum}] ] ] ]}
+        Fail.calculate_checksum_from_notification(notification)
+      end
     end
+  end
+
+  describe "create_or_combine_with_similar_fail" do
     
-    it "should combine to previous fail if the checksums match" do
-      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      lambda {
-        Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      }.should_not change(Fail, :count)
-      
-      fail = Fail.find(fail.id)
-      fail.occurences.size.should == 2
+    it "should create a new fail when there's no other fails in the database" do
+      lambda { Fail.create_or_combine_with_similar_fail(@project, @attributes) }.should change(Fail, :count).by(1)
     end
-    
-    it "should increase the count" do
+
+    it "should create a new occurence for the fail" do
+      Fail.create_or_combine_with_similar_fail(@project, @attributes).occurences.size.should == 1
+    end
+
+    it "should combine fails in same project that have the same checksum" do
+      Fail.create_or_combine_with_similar_fail(@project, @attributes)
+      lambda { Fail.create_or_combine_with_similar_fail(@project, @attributes) }.should_not change(Fail, :count)
+    end
+
+    it "should add a new occurence for the existing fail" do
+      Fail.create_or_combine_with_similar_fail(@project, @attributes)
       fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      fail.occurence_count.should == 1
-      
-      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      fail.occurence_count.should == 2
+
+      fail.occurences.count.should == 2
+    end
+
+    it "should not combine fails in different projects that have the same checksum" do
+      another_project = Project.create(:name => "Shatner's Bassoon Inc")
+      Fail.create_or_combine_with_similar_fail(@project, @attributes)
+
+      lambda { Fail.create_or_combine_with_similar_fail(another_project, @attributes) }.should change(Fail, :count).by(1)
     end
   end
   
