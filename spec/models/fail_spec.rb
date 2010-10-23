@@ -8,7 +8,7 @@ describe Fail do
       :title => "Test",
       :data  => [
         [:summary, [
-          [:type, "NoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\nNoMethodError\n", {:use_in_checksum => true}],
+          [:type, "NoMethodError", {:use_in_checksum => true}],
           [:message, "Called `id' for nil:NilClass", {:use_in_checksum => true}],
           [:environment, "production", {:use_in_checksum => true}],
           [:last_stack_frame, "from ipsum:10:in `lorem'", {:use_in_checksum => true}]
@@ -19,8 +19,7 @@ describe Fail do
       ]
     }
   end
-  
-  
+
   describe "create_new_or_combine_with_similar_fail" do
     it "should create new when there's no other fails in the db" do
       lambda {
