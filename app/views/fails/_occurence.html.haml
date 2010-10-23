@@ -1,8 +1,8 @@
 .data
   .controls
     .actions
-      =link_to('Resolve', '', {:class => 'button positive'})
-      
+      =resolve_button(occurence.fail) unless occurence.fail.acknowledged
+
     .occurences
       %span.previous
         &laquo; Previous
