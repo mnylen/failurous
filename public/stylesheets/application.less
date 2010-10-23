@@ -41,10 +41,12 @@ a {
 }
 
 h2 {
-    font-size:1.4em;
+    color:#373c37;
+    font-size:1.5em;
 
     a {
         font-size:0.7em; 
+        text-decoration:none;
     }
 }
 
@@ -86,9 +88,12 @@ a.button {
     font-weight:bold;
 }
 
+
+.options {
+    float:right;
+}
+
 .toggler {
-    .rounded_corners(8px);
-    border:1px solid #dcdcdc;
     display:inline-block;
 
     .on, .off {
@@ -96,34 +101,29 @@ a.button {
         text-align:center;
         display:inline-block;
         padding:2px;
-        margin:0;
-
-        &:hover {
-            background:url('/images/button_neutral_background_hover.png') repeat top left  
-        }
     }
 
     .on.enabled, .off.enabled {
-        background:url('/images/button_neutral_background_hover.png') repeat top left;
+        background:url('/images/button_neutral_background.png') repeat top left;
+    }
+
+    .off {
+        .advanced_rounded_corners(0, 8px, 0, 8px);
+        .bordered(#dcdcdc, 1px, 1px, 1px, 0);
+    }
+
+    .on {
+        .advanced_rounded_corners(8px, 0, 8px, 0);
+        .bordered(#dcdcdc, 1px, 0, 1px, 1px);
+        margin-right:-3px;
     }
 
     .on.disabled, .off.disabled {
         background-color:#626262;
         color:#fff;
 
-        &:hover {
-            a {
-                color:#2e2e2e;
-            }
-        }
-
         a {
             color:#fff;
-
-
-            &:hover {
-                color:#2e2e2e;
-            }
         }
     }
 }
@@ -246,7 +246,7 @@ a.button {
     &.collapsed {
         .header {
             .rounded_corners;
-            .bordered(#b8b8b7);
+            border:1px solid #b8b8b7;
             background:url('/images/expand.png') no-repeat 10px 50%;
         }
     }
@@ -322,7 +322,8 @@ a.button {
             margin-right:15px;
             font-weight:bold;
             font-size:1.1em;
-            color:#c1c1c1;
+            //color:#c1c1c1;
+            color:#aeaeae;
         }
 
         .state {
