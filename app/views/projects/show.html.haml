@@ -9,10 +9,11 @@
     Show resolved:
 
     .toggler
-      %span.on.enabled
+      .on.enabled
         =link_to('on', '')
-      %span.off.disabled
+      .off.disabled
         =link_to('off', '')
+  .clear
 
 -@fails.each do |fail|
   =render :partial => fail
