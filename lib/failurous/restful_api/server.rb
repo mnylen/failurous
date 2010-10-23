@@ -13,6 +13,7 @@ post '/api/projects/:api_key/fails' do
     status 200
     "OK"
   rescue
+    Rails.logger.error "Invalid API Call: #{$!}\n#{$!.backtrace.join("\n")}"
     status 400
     "Bad Request"
   end
