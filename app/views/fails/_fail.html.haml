@@ -1,4 +1,4 @@
-.fail.collapsed
+.fail{:class => fail_css_class(fail)}
   .header
     .left
       %h3.title=fail.title
@@ -7,7 +7,10 @@
         =fail.location
         
     .right
-      %span.last_occured_at=time_ago_in_words(fail.last_occurence_at) + " ago"
-      %span.count=fail.occurence_count
+      -unless fail.acknowledged
+        %span.last_occured_at=time_ago_in_words(fail.last_occurence_at) + " ago"
+        %span.count=fail.occurence_count
+      -else
+        .state [resolved]
 
   =render :partial => 'fails/occurence', :object => fail.last_occurence

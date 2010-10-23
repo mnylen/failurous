@@ -6,13 +6,13 @@
   Congratulations! This project hasn't failed since the last time you looked here.
 -else
   .options
-    Show resolved:
+    Hide resolved:
 
     .toggler
-      .on.enabled
-        =link_to('on', '')
-      .off.disabled
-        =link_to('off', '')
+      .on{:class => toggler_class(:on)}
+        =link_to('on', project_path(@project))
+      .off{:class => toggler_class(:off)}
+        =link_to('off', project_path(@project, :show_resolved => true))
   .clear
 
 -@fails.each do |fail|

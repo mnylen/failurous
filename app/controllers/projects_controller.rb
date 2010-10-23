@@ -40,6 +40,10 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
-    @fails = @project.open_fails
+    @fails = if params[:show_resolved] == "true"
+      @project.fails
+    else
+      @project.open_fails
+    end
   end
 end
