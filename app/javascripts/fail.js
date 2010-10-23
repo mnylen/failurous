@@ -8,11 +8,12 @@ var fail = function() {
         if (fail.hasClass('collapsed')) {
           fail.removeClass('collapsed');
           fail.addClass('expanded');
-          data.slideDown(1000);
+          data.slideDown(1500);
         } else {
-          data.slideUp(1000);
-          fail.removeClass('expanded');
-          fail.addClass('collapsed');
+          data.slideUp(1500, function() {
+            fail.removeClass('expanded');
+            fail.addClass('collapsed');
+          });
         }
       });
     }
