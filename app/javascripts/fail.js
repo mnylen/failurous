@@ -18,9 +18,9 @@ var fail = function() {
         if (fail.hasClass('collapsed')) {
           fail.removeClass('collapsed');
           fail.addClass('expanded');
-          data.slideDown(1500);
+          data.slideDown(400);
         } else {
-          data.slideUp(1500, function() {
+          data.slideUp(400, function() {
             fail.removeClass('expanded');
             fail.addClass('collapsed');
           });
