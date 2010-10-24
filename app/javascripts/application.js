@@ -10,4 +10,6 @@ jQuery(document).ready(function($) {
   fail.toggleExpanded();
   fail.loadOccurencesUsingFailControls();
   fail.toggleShowResolved();
+
+  $(".getting-started").tabs();
 });

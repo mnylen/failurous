@@ -109,6 +109,91 @@ h2 {
 }
 
 /******************************************************************************
+* Tabs 
+*****************************************************************************/
+
+.getting-started {
+    width:90%;
+}
+
+.ui-tabs {
+    margin-bottom:20px;
+
+    ul.tabs {
+        margin:0;
+        padding:0;
+        background-color:#ef3632;
+
+        li {
+            padding:10px !important;
+            display:inline-block;
+
+            a {
+                font-size:1.1em;
+                color:white;
+                text-decoration:none;
+            }
+
+            .step-number {
+                display:inline-block;
+                color:#fff;
+                background-color:#000;
+                width:18px;
+                height:18px;
+                text-align:center;
+                .rounded_corners(30px);
+            }
+        }
+
+        li.ui-tabs-selected {
+            background-color:#b90d09;
+            .advanced_rounded_corners(0, 40px, 0, 40px);
+        }
+    }
+
+    .ui-tabs-hide {
+        display:none;
+    }
+
+    .ui-tabs-panel {
+        padding:20px;
+        background-color:#f9f9f9;
+        .bordered(#dcdcdc);
+        overflow:auto;
+
+
+        ul {
+            list-style-type:square;
+        }
+
+        .left {
+            margin-right:10%;
+        }
+
+        dl {
+            dt {
+                clear:both;
+                padding:5px;
+                background-color:#d4d3d3;
+                width:8em;
+                float:left;
+                margin:0;
+            }
+
+            dd {
+                width:20em;
+                margin:0 0 5px 0 !important;
+                float:left;
+                color:#fff;
+                padding:5px;
+                font-weight:bold;
+                background-color:#6b6b6b;
+            }
+        }
+    }
+}
+
+/******************************************************************************
 * Buttons
 *****************************************************************************/
 

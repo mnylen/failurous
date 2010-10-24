@@ -1,10 +1,11 @@
-%h2.name
-  =@project.name
-  =link_to("(api key & settings)", edit_project_path(@project))
   
 -unless @project.has_fails?
-  Congratulations! This project hasn't failed since the last time you looked here.
+  =render :partial => 'projects/getting_started'
 -else
+  %h2.name
+    =@project.name
+    =link_to("(api key & settings)", edit_project_path(@project))
+
   .options
     -form_tag(project_path(@project), {:method => :get, :id => 'toggler'}) do |options_form|
       %label
