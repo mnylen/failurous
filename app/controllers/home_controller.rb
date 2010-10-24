@@ -10,8 +10,4 @@ class HomeController < ApplicationController
     end
   end
 
-  def random_slogan
-    render :layout => false
-  end
-  
 end
