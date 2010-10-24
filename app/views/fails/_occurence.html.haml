@@ -5,14 +5,16 @@
 
     .occurences
       %span.previous
-        &laquo; Previous
+        -if occurence.previous_occurence_id
+          =link_to('&laquo; Previous'.html_safe, project_fail_occurence_path(occurence.fail.project, occurence.fail, occurence.previous_occurence_id))
     
       %span.datetime
         Showing occurence at
         =l(occurence.occured_at, :format => :occured_at)
     
       %span.next
-        =link_to('Next &raquo;'.html_safe, '')
+        -if occurence.next_occurence_id
+          =link_to('Next &raquo;'.html_safe, project_fail_occurence_path(occurence.fail.project, occurence.fail, occurence.next_occurence_id))
   
     .clear
 
