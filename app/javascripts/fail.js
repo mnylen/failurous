@@ -1,4 +1,14 @@
 var fail = function() {
+  var loadOccurence = function(oldData, link) {
+    $.get(link.attr('href'), function(data) {
+      var newData = $(data);
+      $(oldData).replaceWith(newData);
+      newData.show();
+
+      fail.loadOccurencesUsingFailControls();
+    });
+  };
+
   return {
     toggleExpanded: function() {
       $(".fail > .header").click(function() {
@@ -15,6 +25,22 @@ var fail = function() {
             fail.addClass('collapsed');
           });
         }
+      });
+    },
+
+    loadOccurencesUsingFailControls: function() {
+      $(".fail").each(function(i, v) {
+        var fail = $(v);
+        var data = $(v).children('.data');
+       
+        $(fail).children().find('.occurence-link').each(function(i, link) {
+          link = $(link);
+
+          link.click(function() {
+            loadOccurence(data, link);
+            return false;
+          });
+        });
       });
     }
   }

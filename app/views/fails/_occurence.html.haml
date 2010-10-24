@@ -6,7 +6,9 @@
     .occurences
       %span.previous
         -if occurence.previous_occurence_id
-          =link_to('&laquo; Previous'.html_safe, project_fail_occurence_path(occurence.fail.project, occurence.fail, occurence.previous_occurence_id))
+          =link_to('&laquo; Previous'.html_safe, project_fail_occurence_path(occurence.fail.project, occurence.fail, occurence.previous_occurence_id), :class => 'previous-occurence occurence-link')
+        -else
+          %laquo; Previous
     
       %span.datetime
         Showing occurence at
@@ -14,8 +16,9 @@
     
       %span.next
         -if occurence.next_occurence_id
-          =link_to('Next &raquo;'.html_safe, project_fail_occurence_path(occurence.fail.project, occurence.fail, occurence.next_occurence_id))
-  
+          =link_to('Next &raquo;'.html_safe, project_fail_occurence_path(occurence.fail.project, occurence.fail, occurence.next_occurence_id), :class => 'next-occurence occurence-link')
+        -else
+          Next &raquo;
     .clear
 
   -occurence.sections.each do |section|
