@@ -79,7 +79,7 @@ h2 {
     }
 }
 
-a.button, .toggler a {
+a.button {
     color:#2e2e2e;
     text-decoration:none;
 }
@@ -88,45 +88,6 @@ a.button {
     font-weight:bold;
 }
 
-
-.options {
-    float:right;
-}
-
-.toggler {
-    display:inline-block;
-
-    .on, .off {
-        width:30px;
-        text-align:center;
-        display:inline-block;
-        padding:2px;
-    }
-
-    .on.enabled, .off.enabled {
-        background:url('/images/button_neutral_background.png') repeat top left;
-    }
-
-    .off {
-        .advanced_rounded_corners(0, 8px, 0, 8px);
-        .bordered(#dcdcdc, 1px, 1px, 1px, 0);
-    }
-
-    .on {
-        .advanced_rounded_corners(8px, 0, 8px, 0);
-        .bordered(#dcdcdc, 1px, 0, 1px, 1px);
-        margin-right:-3px;
-    }
-
-    .on.disabled, .off.disabled {
-        background-color:#626262;
-        color:#fff;
-
-        a {
-            color:#fff;
-        }
-    }
-}
 
 /******************************************************************************
 * Header

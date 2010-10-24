@@ -42,6 +42,12 @@ var fail = function() {
           });
         });
       });
+    },
+
+    toggleShowResolved: function() {
+      $("#toggler").change(function() {
+        window.location.href = $("#toggler").attr('action') + "?" + $("#toggler").serialize();
+      });
     }
   }
 }();

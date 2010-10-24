@@ -6,13 +6,10 @@
   Congratulations! This project hasn't failed since the last time you looked here.
 -else
   .options
-    Hide resolved:
-
-    .toggler
-      .on{:class => toggler_class(:on)}
-        =link_to('on', project_path(@project))
-      .off{:class => toggler_class(:off)}
-        =link_to('off', project_path(@project, :show_resolved => true))
+    -form_tag(project_path(@project), {:method => :get, :id => 'toggler'}) do |options_form|
+      %label
+        =check_box_tag "show_resolved", "true", showing_resolved?
+        Show resolved
   .clear
 
 -@fails.each do |fail|

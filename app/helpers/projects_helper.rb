@@ -7,17 +7,11 @@ module ProjectsHelper
     end
   end
 
-  def toggler_class(state)
-    if params[:show_resolved]
-      case state
-        when :off then 'enabled'
-        when :on then 'disabled'
-      end
+  def showing_resolved?
+    if params[:show_resolved] == "true"
+      true
     else
-      case state
-        when :off then 'disabled'
-        when :on then 'enabled'
-      end
+      false
     end
   end
 end
