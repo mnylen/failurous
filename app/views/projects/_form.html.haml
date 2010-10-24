@@ -3,8 +3,11 @@
     =f.input :name
     
     -unless @project.new_record?
-      =f.input :api_key, :label => "API key", :as => :string, :input_html => {:readonly => true, :class => 'readonly'}
+      =f.input :api_key,
+        :label => "Generated API key",
+        :hint => "Use this API key to configure your client to send fails to this project",
+        :as => :string,
+        :input_html => {:readonly => true, :class => 'readonly'}
 
   -f.buttons do
     =f.commit_button :button_html => {:class => 'positive'}
-
