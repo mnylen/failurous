@@ -27,7 +27,10 @@
       #content-wrapper
         #project-selector
           =render :partial => 'projects/project', :collection => @projects
-        
+          
+          .controls
+            =link_to('Add project', new_project_path(), :class => 'button positive')
+
         #content
           =yield
     
