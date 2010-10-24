@@ -1,9 +1,12 @@
 class HomeController < ApplicationController
   
   def index
-    unless cookies[:shatner]
-      @shatner = true
-      cookies[:shatner] = { :value => "tech wars", :expires => 1.year.from_now }
+    project = Project.first
+
+    unless project
+      redirect_to new_project_path
+    else
+      redirect_to project_path(project)
     end
   end
 
