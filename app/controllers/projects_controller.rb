@@ -1,15 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :load_all_projects
   
-  def index
-    first_project = Project.first
-    if first_project
-      redirect_to project_path(Project.first.id)
-    else
-      redirect_to new_project_path
-    end  
-  end
-  
   def new
     @project = Project.new
   end
@@ -40,10 +31,17 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
-    @fails = if params[:show_resolved] == "true"
-      @project.fails
-    else
-      @project.open_fails
-    end
+    load_fails
   end
+
+
+  private
+
+    def load_fails
+      @fails = if params[:show_resolved] == "true"
+        @project.fails
+      else
+        @project.open_fails
+      end
+    end
 end

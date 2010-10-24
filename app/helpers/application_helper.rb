@@ -14,6 +14,11 @@ module ApplicationHelper
   end
 
   def resolve_button(fail)
-    positive_button('Resolve', ack_project_fail_path(fail.project, fail), :method => :post)
+    positive_button('Resolve',
+      ack_project_fail_path(fail.project, fail,
+        :return_to => project_path(
+          @project.id, :show_resolved => params[:show_resolved]
+        )
+      ), :method => :post)
   end
 end
