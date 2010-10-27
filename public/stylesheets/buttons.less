@@ -1,0 +1,35 @@
+
+.button, .commit input {
+    .rounded_corners;
+    border:1px solid #dcdcdc;
+    padding:4px !important;
+    color:#2e2e2e;
+
+    &.neutral {
+        background:url('/images/button_neutral_background.png') repeat top left;
+
+        &:hover {
+            background:url('/images/button_neutral_background_hover.png') repeat top left  
+        }
+    }
+
+    &.positive {
+        border:1px solid #ffb43c;
+        background:url('/images/button_positive_background.png') repeat top left;
+
+        &:hover {
+            background:url('/images/button_positive_background_hover.png') repeat top left;
+        }
+    }
+}
+
+.commit {
+    padding:0 !important;
+    margin:0 !important;
+}
+
+a.button, .commit input {
+    font-weight:bold !important;
+    color:#2e2e2e !important;
+    text-decoration:none;
+}
