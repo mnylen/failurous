@@ -6,12 +6,13 @@ class Fail
   field :occurence_count, :type => Integer
   field :acknowledged, :type => Boolean
   field :title, :type => String
+  field :location, :type => String
   
   embeds_many :occurences
   referenced_in :project
-
+  
   def location
-    "hell#deep"
+    self[:location] || "unspecified location"
   end
   
   def last_occurence
@@ -84,6 +85,7 @@ class Fail
       fail.last_occurence_at = Time.now 
       fail.increase_count
       fail.acknowledged = false
+      fail.location = attributes[:location]
 
       if fail.occurences.last
         new_occurence.previous_occurence_id = fail.occurences.last.id
