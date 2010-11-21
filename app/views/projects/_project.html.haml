@@ -1,5 +1,18 @@
-.project
-  -link_to(project_path(project), {:class => 'button neutral project-button'}) do
-    =project.name
-    %span.count{:class => negative_or_positive_count(project)}
-      =project.open_fails.count
+.data-box.project
+  .box-header
+    .box-title
+      .title=project.name
+      -if project.last_open_fail
+        .last-fail
+          failed to:
+          %strong=project.last_open_fail.title
+      -else
+        .last-fail
+          %em has no open fails
+    .box-right
+      %span.actions
+        =link_to('Show', project_path(project), :class => 'button neutral')
+        =link_to('Edit', edit_project_path(project), :class => 'button neutral')
+        =link_to('Delete', project_path(project), :method => :delete, :class => 'button negative')
+      %span.count.negative
+        %span.number= project.open_fails.count

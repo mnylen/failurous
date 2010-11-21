@@ -21,6 +21,10 @@ class Project
     fails.where(:acknowledged => true)
   end
   
+  def last_open_fail
+    open_fails.last
+  end
+  
   def has_open_fails?
     not self.open_fails.empty?
   end

@@ -1,0 +1,58 @@
+.project {
+    .box-header {
+        .title {
+            margin-top:@padding/2;
+            font-weight:bold;
+        }
+
+        .actions {
+            display:inline-block;
+            height:@count_height;
+            margin-right:@padding;
+            .button {
+                display:inline-block;
+                position:relative;
+                top:33%;
+            }
+        }
+    }
+    
+    .box-data {
+        .occurences {
+            color:@fg_color_lighter;
+            font-weight:bold;
+            padding:@padding;
+            text-align:center;
+            border-bottom:1px solid @box_border_color;
+        }
+    }
+}
+
+.section {
+    color:@fg_color_lighter;
+    padding:20px;
+
+    h3, dt {
+        font-weight:bold;
+    }
+
+    h3 {
+        font-size:1.2em;
+        border-bottom:1px solid @box_border_color;
+        padding-bottom:@padding/2;
+        margin-bottom:@padding;
+    }
+    
+    dt {
+        margin-bottom:@padding/2;
+    }
+    
+    dd {
+        margin-left:@padding*1.5;
+        margin-bottom:@padding;
+    }
+    
+    .backtrace {
+        line-height:@padding*2;
+    }
+}

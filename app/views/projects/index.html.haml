@@ -1,19 +1,5 @@
-.dashboard
-  %table
-    %thead
-      %tr
-        %th.project-name Project
-        %th.project-fail-count # of open fails
-        %th.project-last-fail Last fail
-        %th.project-actions Actions
-    %tbody
-      -@projects.each do |project|
-        %tr
-          %td=link_to(project.name, project_path(project))
-          %td=project.open_fails.count
-          %td
-            -if project.has_open_fails?
-              =project.open_fails.first.last_occurence_at
-          %td
-            =link_to('Edit', edit_project_path(project), :class => 'button neutral')
-            =link_to('Delete', edit_project_path(project), :class => 'button neutral')
+%h2 Dashboard
+.actions
+  =link_to('Radiator', radiator_path, :class => 'button neutral')
+
+=render @projects
