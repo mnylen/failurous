@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   before_filter :load_all_projects
   
+  def index
+    @project = Project.all
+  end
+      
   def new
     @project = Project.new
   end

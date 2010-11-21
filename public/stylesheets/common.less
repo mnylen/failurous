@@ -1,0 +1,39 @@
+body {
+    font-family:@font;
+    font-size:@font_size;
+}
+
+h2 {
+    color:@heading_color;
+    font-size:@font_size * 2;
+    letter-spacing:1px;
+    margin-bottom:@font_size;
+
+    a {
+        font-size:@font_size * 0.9;
+        text-decoration:none;
+    }
+}
+
+a {
+    color:@link_color;
+}
+
+.count {
+    width: @count_width;
+    height: @count_height;
+    display:inline-block;
+    font-size:@font_size * 1.5;
+    text-align:center;
+    color: @negative_count_foreground;
+    font-weight:bold;
+    
+    .number {
+        position:relative;
+        top:33%;
+    }
+    
+    &.negative {
+        background:transparent @negative_count_background no-repeat top left;
+    }   
+}

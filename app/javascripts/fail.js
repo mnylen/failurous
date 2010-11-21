@@ -11,9 +11,9 @@ var fail = function() {
 
   return {
     toggleExpanded: function() {
-      $(".fail > .header").click(function() {
+      $(".fail > .box-header").click(function() {
         var fail = $(this).parent().eq(0);
-        var data = fail.children('.data');
+        var data = fail.children('.box-data');
 
         if (fail.hasClass('collapsed')) {
           fail.removeClass('collapsed');

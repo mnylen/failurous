@@ -1,8 +1,5 @@
-.data
-  .controls
-    .actions
-      =resolve_button(occurence.fail) unless occurence.fail.acknowledged
-
+.box-data
+  .box-content
     .occurences
       %span.previous
         -if occurence.previous_occurence_id
@@ -19,7 +16,6 @@
           =link_to('Next &raquo;'.html_safe, project_fail_occurence_path(occurence.fail.project, occurence.fail, occurence.next_occurence_id), :class => 'next-occurence occurence-link')
         -else
           Next &raquo;
-    .clear
 
-  -occurence.sections.each do |section|
-    =render :partial => "fails/section", :object => section
+    -occurence.sections.each do |section|
+      =render :partial => "fails/section", :object => section

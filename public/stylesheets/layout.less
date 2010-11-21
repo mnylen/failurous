@@ -1,113 +1,78 @@
 html, body {
     height:100%;
+    margin:0;
+    padding:0;
 }
 
 body {
-    background-color:#efefef;
-    font-family:'Trebuchet MS', Verdana, 'Helvetica Neue', sans-serif;
-    font-size:0.75em;
+    background-color:@body_background_color;
 }
 
-#header-container {
+
+#wrapper {
+    width:@layout_width;
     margin:0 auto;
-    background:url('/images/header_background.png') repeat-x;
+    overflow:auto;
+    height:0 auto !important;
+    min-height:100%;
+    background:@content_background;
+    border-left:3px solid @content_border_color;
+    border-right:3px solid @content_border_color;
+}
+
+
+/**
+ * Header
+ */
+#header-container {
     position:absolute;
-    width:100%;
     left:0;
+    width:100%;
+    margin:0 auto;
+    background:@header_background repeat-x;
 }
 
 #header {
+    position:relative;
     margin:0 auto;
     left:0;
-    width:90%;
-    height:40px;
-
+    width:@layout_width;
+    height:@header_height;
+    
+    /* Make all header elements @header_height in height */
+    > * {
+        height:@header_height;
+    }
+    
     #logo {
         float:left;
-        width:148px;
-        height:40px;
-        background:url('/images/logo.png') no-repeat left center;
-
+        width:@logo_width;
+        background:@logo no-repeat left center;
+        
         h1 {
             display:none;
         }
     }
 
-    #radiator {
+    #navigation {
         float:right;
-        position:relative;
-        top:0.9em;
+        
+        /* Align all navigation elements vertically to the header */
+        > * {
+            position:relative;
+            top:@header_height / 3;
+        }
     }
-}
-
-#wrapper {
-    width:90%;
-    margin:0 auto;
-    overflow:auto;
-    height:0 auto !important;
-    min-height:100%;
-    background:white;
-    border-left:3px solid #ddd;
-    border-right:3px solid #ddd;
 }
 
 #content-wrapper {
-    overflow:auto;
-    margin:70px auto;
-}
-
-#project-selector {
-    margin:0 auto;
-    overflow:auto;
-    width:18%;
-    float:left;
-    padding-bottom:50px;
-
-    .controls {
-        margin-top:20px;
-        text-align:center;
-    }
-
-    .project {
-        margin:0 auto;
-        width:65%;
-        margin-bottom:8px;
-
-        .button {
-            font-size:0.9em;
-            display:block; 
-        }
-
-        .count {
-            float:right;
-            &.positive {
-                color:#48a000; 
-            }
-
-            &.negative {
-                color:#e80000;
-            }
-        }
-    }
+    margin:@header_height auto;
 }
 
 #content {
-    overflow:auto;
-    float:left;
-    width:79%;
-    margin:0;
-}
-
-a {
-    color:#0d90c7;
-}
-
-h2 {
-    color:#373c37;
-    font-size:1.5em;
-
-    a {
-        font-size:0.7em; 
-        text-decoration:none;
+    padding:@content_padding;
+    
+    > * {
+        margin-bottom:10px;
     }
 }

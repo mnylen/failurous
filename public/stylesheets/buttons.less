@@ -1,35 +1,25 @@
-
-.button, .commit input {
+a.button, .commit input {
     .rounded_corners;
-    border:1px solid #dcdcdc;
-    padding:4px !important;
-    color:#2e2e2e;
-
+    padding:@padding/2 !important;
+    color:@button_foreground_color;
+    text-decoration:none;
+    font-weight:bold !important;
+    
     &.neutral {
-        background:url('/images/button_neutral_background.png') repeat top left;
+        border:1px solid @button_neutral_border_color;
+        background:@button_neutral_background repeat top left;
 
         &:hover {
-            background:url('/images/button_neutral_background_hover.png') repeat top left  
+            background:@button_neutral_background_hover repeat top left  
         }
     }
 
     &.positive {
-        border:1px solid #ffb43c;
-        background:url('/images/button_positive_background.png') repeat top left;
+        border:1px solid @button_positive_border_color;
+        background:@button_positive_background repeat top left;
 
         &:hover {
-            background:url('/images/button_positive_background_hover.png') repeat top left;
+            background:@button_positive_background_hover repeat top left;
         }
     }
-}
-
-.commit {
-    padding:0 !important;
-    margin:0 !important;
-}
-
-a.button, .commit input {
-    font-weight:bold !important;
-    color:#2e2e2e !important;
-    text-decoration:none;
 }
