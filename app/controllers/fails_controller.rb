@@ -1,13 +1,12 @@
-class FailsController < ApplicationController
-  
+class FailsController < ApplicationController  
   before_filter :load_fail
   
   def show
   end
   
-  def ack
-    @fail.ack!
-    flash[:message] = "Acknowledged"
+  def resolve
+    @fail.resolve!
+    flash[:message] = "Resolved"
     redirect_to params[:return_to] || project_path(@fail.project) 
   end
 

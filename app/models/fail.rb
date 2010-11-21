@@ -4,7 +4,7 @@ class Fail
   field :checksum, :type => String
   field :last_occurence_at, :type => DateTime
   field :occurence_count, :type => Integer
-  field :acknowledged, :type => Boolean
+  field :resolved, :type => Boolean
   field :title, :type => String
   field :location, :type => String
   
@@ -24,8 +24,8 @@ class Fail
     self.occurence_count += 1
   end
   
-  def ack!
-    self.update_attributes!(:acknowledged => true)
+  def resolve!
+    self.update_attributes!(:resolved => true)
   end
  
 
@@ -84,7 +84,7 @@ class Fail
       fail.title = attributes[:title]
       fail.last_occurence_at = Time.now 
       fail.increase_count
-      fail.acknowledged = false
+      fail.resolved = false
       fail.location = attributes[:location]
 
       if fail.occurences.last

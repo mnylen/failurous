@@ -5,20 +5,14 @@ Failurous::Application.routes.draw do
 
   devise_for :users
   resource :sprockets
-  
-  resources :projects do
-    
-    resources :fails do
-      
-       member do
-         post :ack
-       end
-       
-       resources :occurences
-    end
-    
+  resources :projects
+  resources :fails do
+     member do
+       post :resolve
+     end
   end
   
+  resources :occurences
   resource :radiator
     
 end

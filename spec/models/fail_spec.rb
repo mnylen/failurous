@@ -146,19 +146,19 @@ describe Fail do
     end
   end
   
-  describe "acknowledgments" do
+  describe "resolving" do
     
-    it "should be acknowledged after ack has been called" do
+    it "should be resolved after resolve! has been called" do
       fail = @project.fails.create(@attributes)
-      fail.ack!
-      Fail.find(fail.id).should be_acknowledged   
+      fail.resolve!
+      Fail.find(fail.id).should be_resolved   
     end
     
-    it "should not be acknowledged after a new occurrence" do
+    it "should not be resolved after a new occurrence" do
       fail = Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      fail.ack!     
+      fail.resolve!     
       Fail.create_or_combine_with_similar_fail(@project, @attributes)
-      Fail.find(fail.id).should_not be_acknowledged      
+      Fail.find(fail.id).should_not be_resolved      
     end
     
   end
