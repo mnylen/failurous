@@ -4,11 +4,11 @@
       .title=link_to(project.name, project_path(project))
       -if project.last_open_fail
         .last-fail
-          failed to:
-          %strong=project.last_open_fail.title
+          %strong to:
+          =project.last_open_fail.title
       -else
         .last-fail
-          %em has no open fails
+          no open fails
     .box-right
       %span.count{:class => project_fail_count_class(project)}
         %span.number= project.open_fails.count
