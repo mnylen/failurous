@@ -1,5 +1,5 @@
 module ProjectsHelper
-  def negative_or_positive_count(project)
+  def project_fail_count_class(project)
     if project.open_fails.count > 0
       'negative'
     else

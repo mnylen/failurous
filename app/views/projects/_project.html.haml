@@ -1,7 +1,7 @@
 .data-box.project
   .box-header
     .box-title
-      .title=project.name
+      .title=link_to(project.name, project_path(project))
       -if project.last_open_fail
         .last-fail
           failed to:
@@ -10,5 +10,5 @@
         .last-fail
           %em has no open fails
     .box-right
-      %span.count.negative
+      %span.count{:class => project_fail_count_class(project)}
         %span.number= project.open_fails.count

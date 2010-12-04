@@ -25,7 +25,6 @@ a {
     display:inline-block;
     font-size:@font_size * 1.5;
     text-align:center;
-    color: @negative_count_foreground;
     font-weight:bold;
     
     .number {
@@ -34,6 +33,12 @@ a {
     }
     
     &.negative {
+        color: @negative_count_foreground;
         background:transparent @negative_count_background no-repeat top left;
-    }   
+    }
+    
+    &.positive {
+      color: @positive_count_foreground;
+      background:transparent @positive_count_background no-repeat top left;
+    }
 }
