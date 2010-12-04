@@ -1,42 +1,22 @@
-%h2 You have created a new project! Lets get started! 
-
-%p
-  Please follow the steps below to use Failurous in your project: 
-
 .getting-started
-  %ul.tabs
-    %li
-      %span.step-number 1
-      =link_to('Client & configuration', '#client')
-    %li
-      %span.step-number 2 
-      =link_to('Testing things out', '#testing')
-  .clear
+  %p.no-fails
+    Congratulations! This project hasn't failed before.
 
-  #client
-    .left
-      Choose your client:
-      %ul
-        %li= link_to('Ruby on Rails', '')
-        %li= link_to('Java Guice/Spring/GWT', '')
-        %li= link_to('Clojure Ring', '')
-    .left
-      %p
-        Follow the instructions on client's documentation
-        to configure it for your project.
+  %h3 Getting started
 
-      %p
-        Use the following settings:
+  %p
+    To get started, choose your client. Available clients are listed at the
+    =link_to('Failurous project page', 'http://github.com/mnylen/failurous', :target => :_blank)
+  
+  %p
+    Use the following settings to configure the client:
 
-      %dl
-        %dt API key:
-        %dd= @project.api_key
-
-        %dt Server address:
-        %dd= self.request.host
-
-        %dt Server port:
-        %dd= self.request.port
-
-  #testing
-    ASDF 
+  %dl
+    %dt Server name:
+    %dd= request.server_name
+  
+    %dt Server port:
+    %dd= request.server_port
+  
+    %dt API key:
+    %dd= @project.api_key
