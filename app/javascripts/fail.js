@@ -1,11 +1,14 @@
 var fail = function() {
-  var loadOccurence = function(oldData, link) {
-    $.get(link.attr('href'), function(data) {
-      var newData = $(data);
-      $(oldData).replaceWith(newData);
-      newData.show();
-
-      fail.loadOccurencesUsingFailControls();
+  var loadOccurence = function(oldOccurenceData, link) {
+    $.get(link.attr('href'), function(retrievedOccurenceData) {
+      var newData = $(retrievedOccurenceData);
+      $(oldOccurenceData).find('.box-content').fadeOut(500, function() {
+        $(newData).hide();
+        $(oldOccurenceData).replaceWith($(newData));
+        $(newData).fadeIn(500);
+        
+        fail.loadOccurencesUsingFailControls();
+      });
     });
   };
 
@@ -31,9 +34,10 @@ var fail = function() {
     loadOccurencesUsingFailControls: function() {
       $(".fail").each(function(i, v) {
         var fail = $(v);
-        var data = $(v).children('.data');
-       
+        var data = $(v).children('.box-data');
+        
         $(fail).children().find('.occurence-link').each(function(i, link) {
+          console.debug(link);
           link = $(link);
 
           link.click(function() {

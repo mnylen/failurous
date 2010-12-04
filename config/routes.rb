@@ -6,13 +6,15 @@ Failurous::Application.routes.draw do
   devise_for :users
   resource :sprockets
   resources :projects
+  
   resources :fails do
+    resources :occurences
+    
      member do
        post :resolve
      end
   end
   
-  resources :occurences
   resource :radiator
     
 end
