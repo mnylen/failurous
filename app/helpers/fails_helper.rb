@@ -6,7 +6,7 @@ module FailsHelper
 
   def fail_css_class(fail)
     css_class = "collapsed "
-    if fail.acknowledged
+    if fail.resolved
       css_class << "resolved"
     end
 

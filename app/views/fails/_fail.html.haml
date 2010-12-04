@@ -6,7 +6,7 @@
         %strong at
         =fail.location
     .box-right
-      -unless fail.acknowledged
+      -unless fail.resolved
         %span.last_occured_at
           %span.date=time_ago_in_words(fail.last_occurence_at) + " ago"
         %span.actions
