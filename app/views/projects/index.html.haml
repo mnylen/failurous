@@ -1,5 +1,8 @@
-%h2 Dashboard
-.actions
-  =link_to('Radiator', radiator_path, :class => 'button neutral')
-
-=render @projects
+.dashboard
+  %h2 Dashboard
+  .actions
+    =link_to('Add project', new_project_path, :class => 'button positive')
+    =link_to('Radiator', radiator_path, :class => 'button neutral')
+    
+  .projects
+    =render @projects
