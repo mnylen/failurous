@@ -14,11 +14,11 @@ class Project
   before_create :assign_api_key
   
   def open_fails
-    fails.where(:acknowledged.ne => true)
+    fails.where(:resolved.ne => true)
   end
 
   def closed_fails
-    fails.where(:acknowledged => true)
+    fails.where(:resolved => true)
   end
   
   def last_open_fail
