@@ -1,10 +1,10 @@
 .data-box {
+    .bordered(@box_border_color, 1px, 1px, 1px, 1px);
+
     .box-header {
         overflow:auto;
         background:@inactive_box_background;
         padding:@padding;
-        .rounded_corners(8px);
-        .bordered(@box_border_color);
         
         .box-title {
             font-size:@font_size * 1.5;
@@ -42,12 +42,10 @@
     &.expanded {
         .box-header {
             background:@active_box_background @collapse_icon no-repeat 10px 50%;
-            .advanced_rounded_corners(8px, 8px, 0, 0);
         }
-    
+        
         .box-data {
-            .bordered(@box_border_color, 0, 1px, 1px, 1px);
-            .advanced_rounded_corners(0, 0, 8px, 8px);
+          .bordered(@box_border_color, 1px, 0, 0, 0);
         }
     }
 }
