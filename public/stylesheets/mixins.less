@@ -4,21 +4,6 @@
     border-radius: @radius;
 }
 
-.advanced_rounded_corners(@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
-    -webkit-border-bottom-right-radius: @bottomright @bottomright;
-    -webkit-border-bottom-left-radius: @bottomleft @bottomleft;
-    -webkit-border-top-right-radius: @topright @topright;
-    -webkit-border-top-left-radius: @topleft @topleft;
-    -moz-border-radius-bottomright: @bottomright @bottomright;
-    -moz-border-radius-bottomleft: @bottomleft @bottomleft;
-    -moz-border-radius-topright: @topright @topright;
-    -moz-border-radius-topleft: @topleft @topleft;
-    border-bottom-right-radius: @bottomright @bottomright;
-    border-bottom-left-radius: @bottomleft @bottomleft;
-    border-top-right-radius: @topright @topright;
-    border-top-left-radius: @topleft @topleft;
-}
-
 .bordered(@color: black, @top: 1px, @right: 1px, @bottom: 1px, @left: 1px) {
     border-top:@top solid @color;
     border-right:@right solid @color;
