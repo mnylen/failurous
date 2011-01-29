@@ -1,9 +1,6 @@
 class FailsController < ApplicationController  
   before_filter :load_fail
   
-  def show
-  end
-  
   def resolve
     @fail.resolve!
     flash[:message] = "Resolved"
