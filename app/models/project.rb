@@ -15,11 +15,13 @@ class Project
   before_create :assign_api_key
 
   set_callback(:initialize, :after) do |document|
-    document.email_notification_recipients = []
+    if document.email_notification_recipients.nil?
+      document.email_notification_recipients = []
+    end
   end
 
   def email_notification_recipients_str
-    self.email_notification_recipients.join(", ")
+    self.email_notification_recipients.nil?? "" : self.email_notification_recipients.join(", ")
   end
 
   def email_notification_recipients_str=(str)
@@ -27,6 +29,10 @@ class Project
     self.email_notification_recipients = recipients.map { |r| r.strip }.uniq
 
     str
+  end
+
+  def email_notifications_enabled?
+    !self.email_notification_recipients.empty?
   end
   
   def open_fails

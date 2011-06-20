@@ -1,0 +1,17 @@
+Project <%= @project.name %> failed:
+====================================
+
+<%= @fail.title %>
+
+<%- @fail.occurences.first.sections.each do |section| -%>
+== <%= section.title %>
+
+<%- section.fields.each do |field| -%>
+<%= field.title %>:
+<%= field.value %>
+
+--
+
+<%- end -%>
+<%- end -%>
+

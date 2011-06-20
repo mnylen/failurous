@@ -35,7 +35,12 @@ class Fail
     occurence  = Occurence.new(attributes.merge({:occured_at => Time.now}))
     
     fail = find_by_checksum_and_project_or_build_new(project, checksum) 
+    send_email = (fail.new_record? || fail.resolved?) && project.email_notifications_enabled?
     update_fail_attributes(fail, occurence, attributes)
+
+    if send_email
+      Notifier.fail_landed(fail).deliver
+    end
 
     fail
   end

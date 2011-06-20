@@ -50,3 +50,6 @@ module Failurous
     
   end
 end
+
+EMAIL_NOTIFICATION_SENDER = "fails@domain.com"
+EMAIL_NOTIFICATION_SUBJECT_PREFIX = "[FAIL]"

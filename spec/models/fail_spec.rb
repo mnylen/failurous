@@ -2,7 +2,10 @@ require "spec_helper"
 
 describe Fail do
   before(:each) do
-    @project = Project.create(:name => "Default project")
+    @project = Project.create({
+      :name => "Default project",
+      :email_notification_recipients => ["a@b.com"]
+    })
     
     @attributes = {
       :title => "Test",
@@ -100,7 +103,7 @@ describe Fail do
     end
   end
 
-  describe "create_or_combine_with_similar_fail" do
+  describe "#create_or_combine_with_similar_fail" do
     
     it "should create a new fail when there's no other fails in the database" do
       lambda { Fail.create_or_combine_with_similar_fail(@project, @attributes) }.should change(Fail, :count).by(1)
@@ -126,7 +129,9 @@ describe Fail do
       another_project = Project.create(:name => "Shatner's Bassoon Inc")
       Fail.create_or_combine_with_similar_fail(@project, @attributes)
 
-      lambda { Fail.create_or_combine_with_similar_fail(another_project, @attributes) }.should change(Fail, :count).by(1)
+      lambda {
+        Fail.create_or_combine_with_similar_fail(another_project, @attributes)
+      }.should change(Fail, :count).by(1)
     end
 
     it "should update 'next_occurence_id' on the previous occurence and 'previous_occurence_id' on the new occurence" do
@@ -135,6 +140,28 @@ describe Fail do
 
       fail.occurences.first.next_occurence_id.should == fail.occurences.last.id.to_s
       fail.occurences.last.previous_occurence_id.should == fail.occurences.first.id.to_s
+    end
+
+    it "should deliver email notification if completely new fail" do
+      mail_mock = mock("mail")
+
+      # first time delivers email notification
+      Notifier.should_receive(:fail_landed).once.with(an_instance_of(Fail)).and_return(mail_mock)
+      mail_mock.should_receive(:deliver).once
+      Fail.create_or_combine_with_similar_fail(@project, @attributes)
+      
+      # does not deliver email notification
+      Fail.create_or_combine_with_similar_fail(@project, @attributes) 
+    end
+
+    it "should send email notification if new occurence to previously resolved fail" do
+      mail_mock = mock("mail")
+      Notifier.should_receive(:fail_landed).twice.with(an_instance_of(Fail)).and_return(mail_mock)
+      mail_mock.should_receive(:deliver).twice
+
+      fail = Fail.create_or_combine_with_similar_fail(@project, @attributes) 
+      fail.resolve!
+      Fail.create_or_combine_with_similar_fail(@project, @attributes) 
     end
   end
   
@@ -160,6 +187,6 @@ describe Fail do
       Fail.create_or_combine_with_similar_fail(@project, @attributes)
       Fail.find(fail.id).should_not be_resolved      
     end
-    
+
   end
 end
