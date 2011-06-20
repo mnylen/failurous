@@ -6,12 +6,28 @@ class Project
 
   field :name, :type => String
   field :api_key, :type => String, :index => true
+  field :email_notification_recipients, :type => Array
   
   references_many :fails, :default_order => :last_occurence_at.desc
   
   attr_protected :api_key
   
   before_create :assign_api_key
+
+  set_callback(:initialize, :after) do |document|
+    document.email_notification_recipients = []
+  end
+
+  def email_notification_recipients_str
+    self.email_notification_recipients.join(", ")
+  end
+
+  def email_notification_recipients_str=(str)
+    recipients = str.split(",")
+    self.email_notification_recipients = recipients.map { |r| r.strip }.uniq
+
+    str
+  end
   
   def open_fails
     fails.where(:resolved.ne => true)
