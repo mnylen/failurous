@@ -6,4 +6,3 @@
   - vendor/plugins/*/app/javascripts
 :source_files:
   - app/javascripts/application.js
-  - app/javascripts/**/*.js
