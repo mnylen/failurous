@@ -32,7 +32,7 @@ class Project
   end
 
   def email_notifications_enabled?
-    !self.email_notification_recipients.empty?
+    !self.email_notification_recipients.blank?
   end
   
   def open_fails
