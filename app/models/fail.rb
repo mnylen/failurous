@@ -11,6 +11,9 @@ class Fail
   embeds_many :occurences
   referenced_in :project
   
+  index :last_occurence_at
+  index :resolved
+  
   def location
     self[:location] || "unspecified location"
   end
