@@ -1,6 +1,0 @@
-= link_to('Radiator', radiator_path, :class => 'button') 
-= link_to('New project', new_project_path, :class => 'button')
-.project-selector
-  Project:
-  = select_tag :goto, options_for_select(projects_choices(@projects), :selected => selected_project_path)
-  
