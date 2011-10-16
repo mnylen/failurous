@@ -4,4 +4,5 @@ class Fail
   field :location, type: String
 
   belongs_to :project, index: true
+  has_many :fail_occurrences, autosave: true 
 end
