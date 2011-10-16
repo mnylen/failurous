@@ -3,6 +3,7 @@ class Project
   field :name, type: String
   field :api_key, type: String
   index :api_key, unique: true
+  has_many :fails
 
   validates_presence_of :name
 
