@@ -4,6 +4,8 @@ class Project
   field :api_key, type: String
   index :api_key, unique: true
 
+  validates_presence_of :name
+
   before_create :generate_api_key
 
   protected
