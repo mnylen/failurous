@@ -37,3 +37,74 @@ describe Fail, "relations" do
   end
 end
 
+describe Fail, "combining" do
+  before(:all) do
+    @attributes = {
+      title:    "FailError: Epic Fail",
+      location: "fails#index",
+
+      sections: [
+        { title:  "Summary",
+          fields: [
+            { name:    "Error type",
+              value:   "FailError",
+              type:    "string",
+              hidden:  false,
+              combine: true
+            },
+            { name:    "Error message",
+              value:   "Epic fail",
+              type:    "string",
+              hidden:  false,
+              combine: false
+            },
+            { name:    "Top line in stack trace",
+              value:   "somewhere/in/the/app.rb:30",
+              type:    "string",
+              hidden:  true,
+              combine: true
+            }
+          ]
+        },
+        { title:  "User session",
+          fields: [
+            { name:    "Username",
+              value:   "quentin",
+              type:    "string"
+            }
+          ]
+        }
+      ]
+    }
+  end
+
+  before(:each) do
+    @project = Project.create(name: "Failurous")
+  end
+
+  it "should create fail for project" do
+    Fail.create_or_combine(@project, @attributes)
+
+    @project = Project.find(@project.id)
+    @project.fails.count.should == 1
+  end
+
+  it "should combine two identical fails" do
+    lambda { Fail.create_or_combine(@project, @attributes) }.should change(Fail, :count).by(1)
+    lambda { Fail.create_or_combine(@project, @attributes) }.should_not change(Fail, :count)
+
+    a_fail = Fail.first
+    a_fail.fail_occurrences.size.should == 2
+  end
+
+  it "should combine only when all fields with combine: true are identical" do
+    Fail.create_or_combine(@project, @attributes)
+
+    modified_attributes = @attributes
+    modified_attributes[:sections].first[:fields].first[:value] = "NonFailError"
+
+    Fail.create_or_combine(@project, modified_attributes)
+
+    Fail.count.should == 2
+  end
+end
