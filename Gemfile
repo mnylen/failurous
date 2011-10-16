@@ -21,6 +21,10 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'spork', '~> 0.9.0.rc9'
+end
+
 group :development do
   gem 'thin'
 end
