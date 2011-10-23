@@ -9,6 +9,10 @@ class Project
 
   before_create :generate_api_key
 
+  def self.by_api_key(api_key)
+    where(:api_key => api_key).first
+  end
+
   protected
 
     def generate_api_key

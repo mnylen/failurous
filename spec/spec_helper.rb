@@ -11,6 +11,7 @@ Spork.prefork do
 
   RSpec.configure do |config|
     config.mock_with :rspec
+    config.include AttributesSpecHelper
 
     config.before(:suite) do
       DatabaseCleaner.strategy = :truncation

@@ -5,9 +5,9 @@
 ## Parameters
 
 * `api_key` - Project's API KEY
-* `fail` - Fail's attributes:
+* `data` - Fail data in JSON
 
-Example `fail` attribute contents:
+Example `data` parameter contents:
 
     {
       "sections" : [
@@ -17,7 +17,8 @@ Example `fail` attribute contents:
               "name"    : "Field Name",
               "value"   : "Field Value",
               "type"    : "Field Type (ignored by core)",
-              "combine" : true
+              "combine" : true,
+              "hidden"  : false
             },
          },
          ...
